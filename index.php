@@ -12,21 +12,13 @@
          if(! $conn ) {
             die('Could not connect: ' . mysqli_error());
          }
-         echo 'Connected successfully2';
-         echo 'start';
          $sql = 'SELECT * FROM travel20221231';
-         echo '1';
          mysqli_select_db($conn, '9b3cxQX9UY');
-         echo '2';
          $retval = mysqli_query( $conn, $sql );
-         echo '3';
       
          if(!$retval ) {
             die('Could not get data: ' . mysqli_error());
-         }else{
-            echo '4';
          }
-      
          while($row = mysqli_fetch_array($retval)) {
             echo "day :{$row['day']}  <br> ".
              "num: {$row['num']} <br> ".

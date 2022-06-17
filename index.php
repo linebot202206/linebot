@@ -16,7 +16,7 @@
          echo 'start';
          $sql = 'SELECT * FROM travel20221231';
          echo '1';
-         mysqli_select_db('9b3cxQX9UY');
+         mysqli_select_db($conn, '9b3cxQX9UY');
          echo '2';
          $retval = mysqli_query( $sql, $conn );
          echo '3';

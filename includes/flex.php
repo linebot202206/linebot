@@ -102,7 +102,7 @@ if (strtolower($message['text']) == "flex") {
                             "contents" => array(
                                 array(
                                     "type" => "text",
-                                    "text" => "2023跨年",
+                                    "text" => "2023跨年1",
                                     "color" => "#D7DBCB",
                                     "size" => "sm",
                                     "weight" => "bold"

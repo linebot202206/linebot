@@ -87,323 +87,964 @@ global $client, $message, $event;
 if (strtolower($message['text']) == "flex") {
     /* 注意，Flex Message Simulator 生成並轉換的陣列貼在這邊 */
     $contentsArray = array(
-                                "type" => "bubble",
-                                "size" => "mega",
-                                "header" => array(
+        "type" => "carousel",
+        "contents" => array(
+            array(
+                "type" => "bubble",
+                "size" => "mega",
+                "header" => array(
+                    "type" => "box",
+                    "layout" => "vertical",
+                    "contents" => array(
+                        array(
+                            "type" => "box",
+                            "layout" => "vertical",
+                            "contents" => array(
+                                array(
+                                    "type" => "text",
+                                    "text" => "2023跨年",
+                                    "color" => "#D7DBCB",
+                                    "size" => "sm",
+                                    "weight" => "bold"
+                                ),
+                                array(
+                                    "type" => "text",
+                                    "text" => "Day 1 (12/31)",
+                                    "color" => "#ffffff",
+                                    "size" => "xl",
+                                    "flex" => 4,
+                                    "weight" => "bold"
+                                )
+                            )
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "vertical",
+                            "contents" => array(
+                                array(
+                                    "type" => "text",
+                                    "text" => "台北 - 嘉義",
+                                    "color" => "#D7DBCB",
+                                    "size" => "sm",
+                                    "weight" => "bold"
+                                )
+                            )
+                        )
+                    ),
+                    "paddingAll" => "20px",
+                    "backgroundColor" => "#4B656C",
+                    "spacing" => "md",
+                    "height" => "110px",
+                    "paddingTop" => "22px"
+                ),
+                "body" => array(
+                    "type" => "box",
+                    "layout" => "vertical",
+                    "contents" => array(
+                        array(
+                            "type" => "text",
+                            "text" => "預估旅行時間：3小時",
+                            "color" => "#C5C5C5",
+                            "size" => "xs",
+                            "weight" => "bold"
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "horizontal",
+                            "contents" => array(
+                                array(
+                                    "type" => "text",
+                                    "text" => "租車",
+                                    "size" => "sm",
+                                    "gravity" => "center",
+                                    "color" => "#686868",
+                                    "weight" => "bold"
+                                ),
+                                array(
                                     "type" => "box",
                                     "layout" => "vertical",
                                     "contents" => array(
                                         array(
-                                            "type" => "box",
-                                            "layout" => "vertical",
-                                            "contents" => array(
-                                                array(
-                                                    "type" => "text",
-                                                    "text" => "2023跨年",
-                                                    "color" => "#D7DBCB",
-                                                    "size" => "sm",
-                                                    "weight" => "bold"
-                                                ),
-                                                array(
-                                                    "type" => "text",
-                                                    "text" => "Day 1",
-                                                    "color" => "#ffffff",
-                                                    "size" => "xl",
-                                                    "flex" => 4,
-                                                    "weight" => "bold"
-                                                )
-                                            )
+                                            "type" => "filler"
                                         ),
                                         array(
                                             "type" => "box",
                                             "layout" => "vertical",
-                                            "contents" => array(
-                                                array(
-                                                    "type" => "text",
-                                                    "text" => "台北 -嘉義",
-                                                    "color" => "#D7DBCB",
-                                                    "size" => "sm",
-                                                    "weight" => "bold"
-                                                )
-                                            )
+                                            "contents" => array(),
+                                            "cornerRadius" => "30px",
+                                            "height" => "12px",
+                                            "width" => "12px",
+                                            "borderColor" => "#4B656C",
+                                            "borderWidth" => "2px",
+                                            "backgroundColor" => "#4B656C"
+                                        ),
+                                        array(
+                                            "type" => "filler"
                                         )
                                     ),
-                                    "paddingAll" => "20px",
-                                    "backgroundColor" => "#4B656C",
-                                    "spacing" => "md",
-                                    "height" => "110px",
-                                    "paddingTop" => "22px"
+                                    "flex" => 0
                                 ),
-                                "body" => array(
+                                array(
+                                    "type" => "text",
+                                    "text" => "格上租車",
+                                    "gravity" => "center",
+                                    "flex" => 4,
+                                    "size" => "sm",
+                                    "color" => "#0FAFBB",
+                                    "weight" => "bold"
+                                )
+                            ),
+                            "spacing" => "lg",
+                            "cornerRadius" => "30px",
+                            "margin" => "xl"
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "horizontal",
+                            "contents" => array(
+                                array(
+                                    "type" => "box",
+                                    "layout" => "baseline",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "filler"
+                                        )
+                                    ),
+                                    "flex" => 1
+                                ),
+                                array(
                                     "type" => "box",
                                     "layout" => "vertical",
                                     "contents" => array(
                                         array(
-                                            "type" => "text",
-                                            "text" => "預估旅行時間：3小時",
-                                            "color" => "#C5C5C5",
-                                            "size" => "xs",
-                                            "weight" => "bold"
-                                        ),
-                                        array(
                                             "type" => "box",
                                             "layout" => "horizontal",
                                             "contents" => array(
                                                 array(
-                                                    "type" => "text",
-                                                    "text" => "租車",
-                                                    "size" => "sm",
-                                                    "gravity" => "center",
-                                                    "color" => "#686868",
-                                                    "weight" => "bold"
+                                                    "type" => "filler"
                                                 ),
                                                 array(
                                                     "type" => "box",
                                                     "layout" => "vertical",
-                                                    "contents" => array(
-                                                        array(
-                                                            "type" => "filler"
-                                                        ),
-                                                        array(
-                                                            "type" => "box",
-                                                            "layout" => "vertical",
-                                                            "contents" => array(),
-                                                            "cornerRadius" => "30px",
-                                                            "height" => "12px",
-                                                            "width" => "12px",
-                                                            "borderColor" => "#4B656C",
-                                                            "borderWidth" => "2px",
-                                                            "backgroundColor" => "#4B656C"
-                                                        ),
-                                                        array(
-                                                            "type" => "filler"
-                                                        )
-                                                    ),
-                                                    "flex" => 0
+                                                    "contents" => array(),
+                                                    "width" => "2px",
+                                                    "backgroundColor" => "#4B656C"
                                                 ),
                                                 array(
-                                                    "type" => "text",
-                                                    "text" => "格上租車",
-                                                    "gravity" => "center",
-                                                    "flex" => 4,
-                                                    "size" => "sm",
-                                                    "color" => "#0FAFBB",
-                                                    "weight" => "bold"
+                                                    "type" => "filler"
                                                 )
                                             ),
-                                            "spacing" => "lg",
-                                            "cornerRadius" => "30px",
-                                            "margin" => "xl"
-                                        ),
-                                        array(
-                                            "type" => "box",
-                                            "layout" => "horizontal",
-                                            "contents" => array(
-                                                array(
-                                                    "type" => "box",
-                                                    "layout" => "baseline",
-                                                    "contents" => array(
-                                                        array(
-                                                            "type" => "filler"
-                                                        )
-                                                    ),
-                                                    "flex" => 1
-                                                ),
-                                                array(
-                                                    "type" => "box",
-                                                    "layout" => "vertical",
-                                                    "contents" => array(
-                                                        array(
-                                                            "type" => "box",
-                                                            "layout" => "horizontal",
-                                                            "contents" => array(
-                                                                array(
-                                                                    "type" => "filler"
-                                                                ),
-                                                                array(
-                                                                    "type" => "box",
-                                                                    "layout" => "vertical",
-                                                                    "contents" => array(),
-                                                                    "width" => "2px",
-                                                                    "backgroundColor" => "#4B656C"
-                                                                ),
-                                                                array(
-                                                                    "type" => "filler"
-                                                                )
-                                                            ),
-                                                            "flex" => 1
-                                                        )
-                                                    ),
-                                                    "width" => "12px"
-                                                ),
-                                                array(
-                                                    "type" => "text",
-                                                    "text" => "開車 3小時",
-                                                    "gravity" => "center",
-                                                    "flex" => 4,
-                                                    "size" => "xs",
-                                                    "color" => "#8c8c8c"
-                                                )
-                                            ),
-                                            "spacing" => "lg",
-                                            "height" => "20px"
-                                        ),
-                                        array(
-                                            "type" => "box",
-                                            "layout" => "horizontal",
-                                            "contents" => array(
-                                                array(
-                                                    "type" => "text",
-                                                    "text" => "租車",
-                                                    "size" => "sm",
-                                                    "gravity" => "center",
-                                                    "color" => "#686868",
-                                                    "weight" => "bold"
-                                                ),
-                                                array(
-                                                    "type" => "box",
-                                                    "layout" => "vertical",
-                                                    "contents" => array(
-                                                        array(
-                                                            "type" => "filler"
-                                                        ),
-                                                        array(
-                                                            "type" => "box",
-                                                            "layout" => "vertical",
-                                                            "contents" => array(),
-                                                            "cornerRadius" => "30px",
-                                                            "height" => "12px",
-                                                            "width" => "12px",
-                                                            "borderColor" => "#4B656C",
-                                                            "borderWidth" => "2px",
-                                                            "backgroundColor" => "#4B656C"
-                                                        ),
-                                                        array(
-                                                            "type" => "filler"
-                                                        )
-                                                    ),
-                                                    "flex" => 0
-                                                ),
-                                                array(
-                                                    "type" => "text",
-                                                    "text" => "格上租車",
-                                                    "gravity" => "center",
-                                                    "flex" => 4,
-                                                    "size" => "sm",
-                                                    "color" => "#0FAFBB",
-                                                    "weight" => "bold"
-                                                )
-                                            ),
-                                            "spacing" => "lg",
-                                            "cornerRadius" => "30px",
-                                            "margin" => "none"
-                                        ),
-                                        array(
-                                            "type" => "box",
-                                            "layout" => "horizontal",
-                                            "contents" => array(
-                                                array(
-                                                    "type" => "box",
-                                                    "layout" => "baseline",
-                                                    "contents" => array(
-                                                        array(
-                                                            "type" => "filler"
-                                                        )
-                                                    ),
-                                                    "flex" => 1
-                                                ),
-                                                array(
-                                                    "type" => "box",
-                                                    "layout" => "vertical",
-                                                    "contents" => array(
-                                                        array(
-                                                            "type" => "box",
-                                                            "layout" => "horizontal",
-                                                            "contents" => array(
-                                                                array(
-                                                                    "type" => "filler"
-                                                                ),
-                                                                array(
-                                                                    "type" => "box",
-                                                                    "layout" => "vertical",
-                                                                    "contents" => array(),
-                                                                    "width" => "2px",
-                                                                    "backgroundColor" => "#4B656C"
-                                                                ),
-                                                                array(
-                                                                    "type" => "filler"
-                                                                )
-                                                            ),
-                                                            "flex" => 1
-                                                        )
-                                                    ),
-                                                    "width" => "12px"
-                                                ),
-                                                array(
-                                                    "type" => "text",
-                                                    "text" => "開車 3小時",
-                                                    "gravity" => "center",
-                                                    "flex" => 4,
-                                                    "size" => "xs",
-                                                    "color" => "#8c8c8c"
-                                                )
-                                            ),
-                                            "spacing" => "lg",
-                                            "height" => "20px"
-                                        ),
-                                        array(
-                                            "type" => "box",
-                                            "layout" => "horizontal",
-                                            "contents" => array(
-                                                array(
-                                                    "type" => "text",
-                                                    "text" => "租車",
-                                                    "size" => "sm",
-                                                    "gravity" => "center",
-                                                    "color" => "#686868",
-                                                    "weight" => "bold"
-                                                ),
-                                                array(
-                                                    "type" => "box",
-                                                    "layout" => "vertical",
-                                                    "contents" => array(
-                                                        array(
-                                                            "type" => "filler"
-                                                        ),
-                                                        array(
-                                                            "type" => "box",
-                                                            "layout" => "vertical",
-                                                            "contents" => array(),
-                                                            "cornerRadius" => "30px",
-                                                            "height" => "12px",
-                                                            "width" => "12px",
-                                                            "borderColor" => "#4B656C",
-                                                            "borderWidth" => "2px",
-                                                            "backgroundColor" => "#4B656C"
-                                                        ),
-                                                        array(
-                                                            "type" => "filler"
-                                                        )
-                                                    ),
-                                                    "flex" => 0
-                                                ),
-                                                array(
-                                                    "type" => "text",
-                                                    "text" => "格上租車",
-                                                    "gravity" => "center",
-                                                    "flex" => 4,
-                                                    "size" => "sm",
-                                                    "color" => "#0FAFBB",
-                                                    "weight" => "bold"
-                                                )
-                                            ),
-                                            "spacing" => "lg",
-                                            "cornerRadius" => "30px",
-                                            "margin" => "none"
+                                            "flex" => 1
                                         )
-                                    )
+                                    ),
+                                    "width" => "12px"
+                                ),
+                                array(
+                                    "type" => "text",
+                                    "text" => "開車 3小時",
+                                    "gravity" => "center",
+                                    "flex" => 4,
+                                    "size" => "xs",
+                                    "color" => "#8c8c8c"
                                 )
-                            );
+                            ),
+                            "spacing" => "lg",
+                            "height" => "20px"
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "horizontal",
+                            "contents" => array(
+                                array(
+                                    "type" => "text",
+                                    "text" => "租車",
+                                    "size" => "sm",
+                                    "gravity" => "center",
+                                    "color" => "#686868",
+                                    "weight" => "bold"
+                                ),
+                                array(
+                                    "type" => "box",
+                                    "layout" => "vertical",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "filler"
+                                        ),
+                                        array(
+                                            "type" => "box",
+                                            "layout" => "vertical",
+                                            "contents" => array(),
+                                            "cornerRadius" => "30px",
+                                            "height" => "12px",
+                                            "width" => "12px",
+                                            "borderColor" => "#4B656C",
+                                            "borderWidth" => "2px",
+                                            "backgroundColor" => "#4B656C"
+                                        ),
+                                        array(
+                                            "type" => "filler"
+                                        )
+                                    ),
+                                    "flex" => 0
+                                ),
+                                array(
+                                    "type" => "text",
+                                    "text" => "格上租車",
+                                    "gravity" => "center",
+                                    "flex" => 4,
+                                    "size" => "sm",
+                                    "color" => "#0FAFBB",
+                                    "weight" => "bold"
+                                )
+                            ),
+                            "spacing" => "lg",
+                            "cornerRadius" => "30px",
+                            "margin" => "none"
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "horizontal",
+                            "contents" => array(
+                                array(
+                                    "type" => "box",
+                                    "layout" => "baseline",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "filler"
+                                        )
+                                    ),
+                                    "flex" => 1
+                                ),
+                                array(
+                                    "type" => "box",
+                                    "layout" => "vertical",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "box",
+                                            "layout" => "horizontal",
+                                            "contents" => array(
+                                                array(
+                                                    "type" => "filler"
+                                                ),
+                                                array(
+                                                    "type" => "box",
+                                                    "layout" => "vertical",
+                                                    "contents" => array(),
+                                                    "width" => "2px",
+                                                    "backgroundColor" => "#4B656C"
+                                                ),
+                                                array(
+                                                    "type" => "filler"
+                                                )
+                                            ),
+                                            "flex" => 1
+                                        )
+                                    ),
+                                    "width" => "12px"
+                                ),
+                                array(
+                                    "type" => "text",
+                                    "text" => "開車 3小時",
+                                    "gravity" => "center",
+                                    "flex" => 4,
+                                    "size" => "xs",
+                                    "color" => "#8c8c8c"
+                                )
+                            ),
+                            "spacing" => "lg",
+                            "height" => "20px"
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "horizontal",
+                            "contents" => array(
+                                array(
+                                    "type" => "text",
+                                    "text" => "租車",
+                                    "size" => "sm",
+                                    "gravity" => "center",
+                                    "color" => "#686868",
+                                    "weight" => "bold"
+                                ),
+                                array(
+                                    "type" => "box",
+                                    "layout" => "vertical",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "filler"
+                                        ),
+                                        array(
+                                            "type" => "box",
+                                            "layout" => "vertical",
+                                            "contents" => array(),
+                                            "cornerRadius" => "30px",
+                                            "height" => "12px",
+                                            "width" => "12px",
+                                            "borderColor" => "#4B656C",
+                                            "borderWidth" => "2px",
+                                            "backgroundColor" => "#4B656C"
+                                        ),
+                                        array(
+                                            "type" => "filler"
+                                        )
+                                    ),
+                                    "flex" => 0
+                                ),
+                                array(
+                                    "type" => "text",
+                                    "text" => "格上租車",
+                                    "gravity" => "center",
+                                    "flex" => 4,
+                                    "size" => "sm",
+                                    "color" => "#0FAFBB",
+                                    "weight" => "bold"
+                                )
+                            ),
+                            "spacing" => "lg",
+                            "cornerRadius" => "30px",
+                            "margin" => "none"
+                        )
+                    )
+                )
+            ),
+            array(
+                "type" => "bubble",
+                "size" => "mega",
+                "header" => array(
+                    "type" => "box",
+                    "layout" => "vertical",
+                    "contents" => array(
+                        array(
+                            "type" => "box",
+                            "layout" => "vertical",
+                            "contents" => array(
+                                array(
+                                    "type" => "text",
+                                    "text" => "2023跨年",
+                                    "color" => "#D7DBCB",
+                                    "size" => "sm",
+                                    "weight" => "bold"
+                                ),
+                                array(
+                                    "type" => "text",
+                                    "text" => "Day 2 (1/1)",
+                                    "color" => "#ffffff",
+                                    "size" => "xl",
+                                    "flex" => 4,
+                                    "weight" => "bold"
+                                )
+                            )
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "vertical",
+                            "contents" => array(
+                                array(
+                                    "type" => "text",
+                                    "text" => "嘉義 - 台南",
+                                    "color" => "#D7DBCB",
+                                    "size" => "sm",
+                                    "weight" => "bold"
+                                )
+                            )
+                        )
+                    ),
+                    "paddingAll" => "20px",
+                    "backgroundColor" => "#4B656C",
+                    "spacing" => "md",
+                    "height" => "110px",
+                    "paddingTop" => "22px"
+                ),
+                "body" => array(
+                    "type" => "box",
+                    "layout" => "vertical",
+                    "contents" => array(
+                        array(
+                            "type" => "text",
+                            "text" => "預估旅行時間：3小時",
+                            "color" => "#C5C5C5",
+                            "size" => "xs",
+                            "weight" => "bold"
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "horizontal",
+                            "contents" => array(
+                                array(
+                                    "type" => "text",
+                                    "text" => "租車",
+                                    "size" => "sm",
+                                    "gravity" => "center",
+                                    "color" => "#686868",
+                                    "weight" => "bold"
+                                ),
+                                array(
+                                    "type" => "box",
+                                    "layout" => "vertical",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "filler"
+                                        ),
+                                        array(
+                                            "type" => "box",
+                                            "layout" => "vertical",
+                                            "contents" => array(),
+                                            "cornerRadius" => "30px",
+                                            "height" => "12px",
+                                            "width" => "12px",
+                                            "borderColor" => "#4B656C",
+                                            "borderWidth" => "2px",
+                                            "backgroundColor" => "#4B656C"
+                                        ),
+                                        array(
+                                            "type" => "filler"
+                                        )
+                                    ),
+                                    "flex" => 0
+                                ),
+                                array(
+                                    "type" => "text",
+                                    "text" => "格上租車",
+                                    "gravity" => "center",
+                                    "flex" => 4,
+                                    "size" => "sm",
+                                    "color" => "#0FAFBB",
+                                    "weight" => "bold"
+                                )
+                            ),
+                            "spacing" => "lg",
+                            "cornerRadius" => "30px",
+                            "margin" => "xl"
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "horizontal",
+                            "contents" => array(
+                                array(
+                                    "type" => "box",
+                                    "layout" => "baseline",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "filler"
+                                        )
+                                    ),
+                                    "flex" => 1
+                                ),
+                                array(
+                                    "type" => "box",
+                                    "layout" => "vertical",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "box",
+                                            "layout" => "horizontal",
+                                            "contents" => array(
+                                                array(
+                                                    "type" => "filler"
+                                                ),
+                                                array(
+                                                    "type" => "box",
+                                                    "layout" => "vertical",
+                                                    "contents" => array(),
+                                                    "width" => "2px",
+                                                    "backgroundColor" => "#4B656C"
+                                                ),
+                                                array(
+                                                    "type" => "filler"
+                                                )
+                                            ),
+                                            "flex" => 1
+                                        )
+                                    ),
+                                    "width" => "12px"
+                                ),
+                                array(
+                                    "type" => "text",
+                                    "text" => "開車 3小時",
+                                    "gravity" => "center",
+                                    "flex" => 4,
+                                    "size" => "xs",
+                                    "color" => "#8c8c8c"
+                                )
+                            ),
+                            "spacing" => "lg",
+                            "height" => "20px"
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "horizontal",
+                            "contents" => array(
+                                array(
+                                    "type" => "text",
+                                    "text" => "租車",
+                                    "size" => "sm",
+                                    "gravity" => "center",
+                                    "color" => "#686868",
+                                    "weight" => "bold"
+                                ),
+                                array(
+                                    "type" => "box",
+                                    "layout" => "vertical",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "filler"
+                                        ),
+                                        array(
+                                            "type" => "box",
+                                            "layout" => "vertical",
+                                            "contents" => array(),
+                                            "cornerRadius" => "30px",
+                                            "height" => "12px",
+                                            "width" => "12px",
+                                            "borderColor" => "#4B656C",
+                                            "borderWidth" => "2px",
+                                            "backgroundColor" => "#4B656C"
+                                        ),
+                                        array(
+                                            "type" => "filler"
+                                        )
+                                    ),
+                                    "flex" => 0
+                                ),
+                                array(
+                                    "type" => "text",
+                                    "text" => "格上租車",
+                                    "gravity" => "center",
+                                    "flex" => 4,
+                                    "size" => "sm",
+                                    "color" => "#0FAFBB",
+                                    "weight" => "bold"
+                                )
+                            ),
+                            "spacing" => "lg",
+                            "cornerRadius" => "30px",
+                            "margin" => "none"
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "horizontal",
+                            "contents" => array(
+                                array(
+                                    "type" => "box",
+                                    "layout" => "baseline",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "filler"
+                                        )
+                                    ),
+                                    "flex" => 1
+                                ),
+                                array(
+                                    "type" => "box",
+                                    "layout" => "vertical",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "box",
+                                            "layout" => "horizontal",
+                                            "contents" => array(
+                                                array(
+                                                    "type" => "filler"
+                                                ),
+                                                array(
+                                                    "type" => "box",
+                                                    "layout" => "vertical",
+                                                    "contents" => array(),
+                                                    "width" => "2px",
+                                                    "backgroundColor" => "#4B656C"
+                                                ),
+                                                array(
+                                                    "type" => "filler"
+                                                )
+                                            ),
+                                            "flex" => 1
+                                        )
+                                    ),
+                                    "width" => "12px"
+                                ),
+                                array(
+                                    "type" => "text",
+                                    "text" => "開車 3小時",
+                                    "gravity" => "center",
+                                    "flex" => 4,
+                                    "size" => "xs",
+                                    "color" => "#8c8c8c"
+                                )
+                            ),
+                            "spacing" => "lg",
+                            "height" => "20px"
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "horizontal",
+                            "contents" => array(
+                                array(
+                                    "type" => "text",
+                                    "text" => "租車",
+                                    "size" => "sm",
+                                    "gravity" => "center",
+                                    "color" => "#686868",
+                                    "weight" => "bold"
+                                ),
+                                array(
+                                    "type" => "box",
+                                    "layout" => "vertical",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "filler"
+                                        ),
+                                        array(
+                                            "type" => "box",
+                                            "layout" => "vertical",
+                                            "contents" => array(),
+                                            "cornerRadius" => "30px",
+                                            "height" => "12px",
+                                            "width" => "12px",
+                                            "borderColor" => "#4B656C",
+                                            "borderWidth" => "2px",
+                                            "backgroundColor" => "#4B656C"
+                                        ),
+                                        array(
+                                            "type" => "filler"
+                                        )
+                                    ),
+                                    "flex" => 0
+                                ),
+                                array(
+                                    "type" => "text",
+                                    "text" => "格上租車",
+                                    "gravity" => "center",
+                                    "flex" => 4,
+                                    "size" => "sm",
+                                    "color" => "#0FAFBB",
+                                    "weight" => "bold"
+                                )
+                            ),
+                            "spacing" => "lg",
+                            "cornerRadius" => "30px",
+                            "margin" => "none"
+                        )
+                    )
+                )
+            ),
+            array(
+                "type" => "bubble",
+                "size" => "mega",
+                "header" => array(
+                    "type" => "box",
+                    "layout" => "vertical",
+                    "contents" => array(
+                        array(
+                            "type" => "box",
+                            "layout" => "vertical",
+                            "contents" => array(
+                                array(
+                                    "type" => "text",
+                                    "text" => "2023跨年",
+                                    "color" => "#D7DBCB",
+                                    "size" => "sm",
+                                    "weight" => "bold"
+                                ),
+                                array(
+                                    "type" => "text",
+                                    "text" => "Day 3 (1/2)",
+                                    "color" => "#ffffff",
+                                    "size" => "xl",
+                                    "flex" => 4,
+                                    "weight" => "bold"
+                                )
+                            )
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "vertical",
+                            "contents" => array(
+                                array(
+                                    "type" => "text",
+                                    "text" => "台南 - 台北",
+                                    "color" => "#D7DBCB",
+                                    "size" => "sm",
+                                    "weight" => "bold"
+                                )
+                            )
+                        )
+                    ),
+                    "paddingAll" => "20px",
+                    "backgroundColor" => "#4B656C",
+                    "spacing" => "md",
+                    "height" => "110px",
+                    "paddingTop" => "22px"
+                ),
+                "body" => array(
+                    "type" => "box",
+                    "layout" => "vertical",
+                    "contents" => array(
+                        array(
+                            "type" => "text",
+                            "text" => "預估旅行時間：3小時",
+                            "color" => "#C5C5C5",
+                            "size" => "xs",
+                            "weight" => "bold"
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "horizontal",
+                            "contents" => array(
+                                array(
+                                    "type" => "text",
+                                    "text" => "租車",
+                                    "size" => "sm",
+                                    "gravity" => "center",
+                                    "color" => "#686868",
+                                    "weight" => "bold"
+                                ),
+                                array(
+                                    "type" => "box",
+                                    "layout" => "vertical",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "filler"
+                                        ),
+                                        array(
+                                            "type" => "box",
+                                            "layout" => "vertical",
+                                            "contents" => array(),
+                                            "cornerRadius" => "30px",
+                                            "height" => "12px",
+                                            "width" => "12px",
+                                            "borderColor" => "#4B656C",
+                                            "borderWidth" => "2px",
+                                            "backgroundColor" => "#4B656C"
+                                        ),
+                                        array(
+                                            "type" => "filler"
+                                        )
+                                    ),
+                                    "flex" => 0
+                                ),
+                                array(
+                                    "type" => "text",
+                                    "text" => "格上租車",
+                                    "gravity" => "center",
+                                    "flex" => 4,
+                                    "size" => "sm",
+                                    "color" => "#0FAFBB",
+                                    "weight" => "bold"
+                                )
+                            ),
+                            "spacing" => "lg",
+                            "cornerRadius" => "30px",
+                            "margin" => "xl"
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "horizontal",
+                            "contents" => array(
+                                array(
+                                    "type" => "box",
+                                    "layout" => "baseline",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "filler"
+                                        )
+                                    ),
+                                    "flex" => 1
+                                ),
+                                array(
+                                    "type" => "box",
+                                    "layout" => "vertical",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "box",
+                                            "layout" => "horizontal",
+                                            "contents" => array(
+                                                array(
+                                                    "type" => "filler"
+                                                ),
+                                                array(
+                                                    "type" => "box",
+                                                    "layout" => "vertical",
+                                                    "contents" => array(),
+                                                    "width" => "2px",
+                                                    "backgroundColor" => "#4B656C"
+                                                ),
+                                                array(
+                                                    "type" => "filler"
+                                                )
+                                            ),
+                                            "flex" => 1
+                                        )
+                                    ),
+                                    "width" => "12px"
+                                ),
+                                array(
+                                    "type" => "text",
+                                    "text" => "開車 3小時",
+                                    "gravity" => "center",
+                                    "flex" => 4,
+                                    "size" => "xs",
+                                    "color" => "#8c8c8c"
+                                )
+                            ),
+                            "spacing" => "lg",
+                            "height" => "20px"
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "horizontal",
+                            "contents" => array(
+                                array(
+                                    "type" => "text",
+                                    "text" => "租車",
+                                    "size" => "sm",
+                                    "gravity" => "center",
+                                    "color" => "#686868",
+                                    "weight" => "bold"
+                                ),
+                                array(
+                                    "type" => "box",
+                                    "layout" => "vertical",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "filler"
+                                        ),
+                                        array(
+                                            "type" => "box",
+                                            "layout" => "vertical",
+                                            "contents" => array(),
+                                            "cornerRadius" => "30px",
+                                            "height" => "12px",
+                                            "width" => "12px",
+                                            "borderColor" => "#4B656C",
+                                            "borderWidth" => "2px",
+                                            "backgroundColor" => "#4B656C"
+                                        ),
+                                        array(
+                                            "type" => "filler"
+                                        )
+                                    ),
+                                    "flex" => 0
+                                ),
+                                array(
+                                    "type" => "text",
+                                    "text" => "格上租車",
+                                    "gravity" => "center",
+                                    "flex" => 4,
+                                    "size" => "sm",
+                                    "color" => "#0FAFBB",
+                                    "weight" => "bold"
+                                )
+                            ),
+                            "spacing" => "lg",
+                            "cornerRadius" => "30px",
+                            "margin" => "none"
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "horizontal",
+                            "contents" => array(
+                                array(
+                                    "type" => "box",
+                                    "layout" => "baseline",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "filler"
+                                        )
+                                    ),
+                                    "flex" => 1
+                                ),
+                                array(
+                                    "type" => "box",
+                                    "layout" => "vertical",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "box",
+                                            "layout" => "horizontal",
+                                            "contents" => array(
+                                                array(
+                                                    "type" => "filler"
+                                                ),
+                                                array(
+                                                    "type" => "box",
+                                                    "layout" => "vertical",
+                                                    "contents" => array(),
+                                                    "width" => "2px",
+                                                    "backgroundColor" => "#4B656C"
+                                                ),
+                                                array(
+                                                    "type" => "filler"
+                                                )
+                                            ),
+                                            "flex" => 1
+                                        )
+                                    ),
+                                    "width" => "12px"
+                                ),
+                                array(
+                                    "type" => "text",
+                                    "text" => "開車 3小時",
+                                    "gravity" => "center",
+                                    "flex" => 4,
+                                    "size" => "xs",
+                                    "color" => "#8c8c8c"
+                                )
+                            ),
+                            "spacing" => "lg",
+                            "height" => "20px"
+                        ),
+                        array(
+                            "type" => "box",
+                            "layout" => "horizontal",
+                            "contents" => array(
+                                array(
+                                    "type" => "text",
+                                    "text" => "租車",
+                                    "size" => "sm",
+                                    "gravity" => "center",
+                                    "color" => "#686868",
+                                    "weight" => "bold"
+                                ),
+                                array(
+                                    "type" => "box",
+                                    "layout" => "vertical",
+                                    "contents" => array(
+                                        array(
+                                            "type" => "filler"
+                                        ),
+                                        array(
+                                            "type" => "box",
+                                            "layout" => "vertical",
+                                            "contents" => array(),
+                                            "cornerRadius" => "30px",
+                                            "height" => "12px",
+                                            "width" => "12px",
+                                            "borderColor" => "#4B656C",
+                                            "borderWidth" => "2px",
+                                            "backgroundColor" => "#4B656C"
+                                        ),
+                                        array(
+                                            "type" => "filler"
+                                        )
+                                    ),
+                                    "flex" => 0
+                                ),
+                                array(
+                                    "type" => "text",
+                                    "text" => "格上租車",
+                                    "gravity" => "center",
+                                    "flex" => 4,
+                                    "size" => "sm",
+                                    "color" => "#0FAFBB",
+                                    "weight" => "bold"
+                                )
+                            ),
+                            "spacing" => "lg",
+                            "cornerRadius" => "30px",
+                            "margin" => "none"
+                        )
+                    )
+                )
+            )
+        )
+    );
 
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],

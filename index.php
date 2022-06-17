@@ -27,7 +27,7 @@
             echo '4';
          }
       
-         while($row = mysqli_fetch_array($retval, mysqli_ASSOC)) {
+         while($row = mysqli_fetch_array($retval)) {
             echo "day :{$row['day']}  <br> ".
              "num: {$row['num']} <br> ".
               "label: {$row['label']} <br> ".

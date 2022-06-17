@@ -17,7 +17,8 @@
          $sql = 'SELECT * FROM travel20221231';
          mysqli_select_db('9b3cxQX9UY');
          $retval = mysqli_query( $sql, $conn );
-         print_r($retval);
+         print_r("123===".$retval);
+         echo 'done';
          //mysqli_close($conn);
       ?>
    </body>

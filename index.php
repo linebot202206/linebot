@@ -18,7 +18,7 @@
          echo '1';
          mysqli_select_db($conn, '9b3cxQX9UY');
          echo '2';
-         $retval = mysqli_query( $sql, $conn );
+         $retval = mysqli_query( $conn, $sql );
          echo '3';
       
          if(! $retval ) {

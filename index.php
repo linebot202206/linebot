@@ -15,8 +15,11 @@
          echo 'Connected successfully2';
          echo 'start';
          $sql = 'SELECT * FROM travel20221231';
+         echo '1';
          mysqli_select_db('9b3cxQX9UY');
+         echo '2';
          $retval = mysqli_query( $sql, $conn );
+         echo '3';
       
          if(! $retval ) {
             die('Could not get data: ' . mysqli_error());

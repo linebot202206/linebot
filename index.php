@@ -21,12 +21,14 @@
          $retval = mysqli_query( $conn, $sql );
          echo '3';
       
-         if(! $retval ) {
+         if(!$retval ) {
             die('Could not get data: ' . mysqli_error());
+         }else{
+            echo '4';
          }
       
          while($row = mysqli_fetch_array($retval, mysqli_ASSOC)) {
-            echo "day :{$row['v']}  <br> ".
+            echo "day :{$row['day']}  <br> ".
              "num: {$row['num']} <br> ".
               "label: {$row['label']} <br> ".
             "name : {$row['name']} <br> ".

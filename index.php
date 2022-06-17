@@ -12,8 +12,8 @@
          if(! $conn ) {
             die('Could not connect: ' . mysqli_error());
          }
-         echo 'Connected successfully';
-         
+         echo 'Connected successfully2';
+         echo 'start';
          $sql = 'SELECT * FROM travel20221231';
          mysqli_select_db('9b3cxQX9UY');
          $retval = mysqli_query( $sql, $conn );

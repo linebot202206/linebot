@@ -17,6 +17,11 @@
          $sql = 'SELECT * FROM travel20221231';
          mysqli_select_db('9b3cxQX9UY');
          $retval = mysqli_query( $sql, $conn );
+      
+         if(! $retval ) {
+            die('Could not get data: ' . mysqli_error());
+         }
+      
          while($row = mysqli_fetch_array($retval, mysqli_ASSOC)) {
             echo "day :{$row['v']}  <br> ".
              "num: {$row['num']} <br> ".

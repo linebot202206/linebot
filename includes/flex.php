@@ -191,7 +191,7 @@ if (strtolower($message['text']) == "flex") {
                                     "flex" => 4,
                                     "size" => "sm",
                                     "color" => "#0FAFBB",
-                                    "weight" => "bold"
+                                    "weight" => "bold",
                                     "action" => array(
                                         "type" => "uri",
                                         "label" => "action",

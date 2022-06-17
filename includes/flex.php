@@ -192,6 +192,11 @@ if (strtolower($message['text']) == "flex") {
                                     "size" => "sm",
                                     "color" => "#0FAFBB",
                                     "weight" => "bold"
+                                    "action" => array(
+                                        "type" => "uri",
+                                        "label" => "action",
+                                        "uri" => "https://www.car-plus.com.tw/"
+                                    )
                                 )
                             ),
                             "spacing" => "lg",

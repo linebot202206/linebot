@@ -22,7 +22,6 @@ if (strtolower($message['text']) == "flex") {
 
 function output($name)
 {
-    return;
     //取得table
     $sql = "SELECT * FROM `config` WHERE `name` = '$name'";
     //$sql = 'SELECT * FROM travel20221231 ORDER BY day ASC, num ASC';

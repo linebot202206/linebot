@@ -7,8 +7,9 @@
     <?php
     $urlData = urldecode($_SERVER['QUERY_STRING']);
     $url = explode("=",explode("?",$urlData)[1])[1];
-    header("Location: $url"); 
-    exit;
+    echo $url;
+    //header("Location: $url"); 
+    //exit;
     ?>
   </body>
 </html>

@@ -7,6 +7,18 @@ if (strtolower($message['text']) == "flex") {
     $name = "2023跨年";
     $contentsArray = output($name);
 
+    $b = $a?:"失敗";
+
+    $client->replyMessage(array(
+        'replyToken' => $event['replyToken'],
+        'messages' => array(
+            array(
+                'type' => 'text',
+                'text' => $b
+            )
+        )
+    ));
+
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],
         'messages' => array(

@@ -22,13 +22,7 @@
 
          $data = $row = mysqli_fetch_array($retval);
          $type = "travel";
-         switch ($type) {
-            case 'travel':
-               echo "switch_travel<br>";
-               //$bubble = travel($data);
-               //print_r($bubble);
-               break;
-         }
+         
          /*
          while($row = mysqli_fetch_array($retval)) {
             echo "day :{$row['day']}  <br> ".
@@ -40,72 +34,7 @@
          */
          //mysqli_close($conn);
 
-         public function travel($data)
-         {
-            echo "執行travel<br>";
-            
-            /*
-            $label = [
-               "type" => "text",
-               "text" => "租車",
-               "size" => "sm",
-               "gravity" => "center",
-               "color" => "#686868",
-               "weight" => "bold",
-            ];
-
-            $dots = [
-               "type" => "box",
-               "layout" => "vertical",
-               "contents" => [
-                  ["type" => "filler"],
-                  [
-                     "type" => "box",
-                     "layout" => "vertical",
-                     "contents" => [],
-                     "cornerRadius" => "30px",
-                     "height" => "12px",
-                     "width" => "12px",
-                     "borderColor" => "#4B656C",
-                     "borderWidth" => "2px",
-                     "backgroundColor" => "#4B656C",
-                  ],
-                  ["type" => "filler"],
-               ],
-               "flex" => 0,
-            ];
-
-            $place = [
-               "type" => "text",
-               "text" => "格上租車",
-               "gravity" => "center",
-               "flex" => 4,
-               "size" => "sm",
-               "color" => "#0FAFBB",
-               "weight" => "bold",
-            ];
-
-            $bubble = [
-               "type" => "bubble",
-               "size" => "mega",
-               "body" => [
-                  "type" => "box",
-                  "layout" => "vertical",
-                  "contents" => [
-                     "type" => "box",
-                     "layout" => "horizontal",
-                     "contents" => [$label, $dots, $place],
-                     "spacing" => "lg",
-                     "cornerRadius" => "30px",
-                     "margin" => "xl",
-                  ],
-               ],
-            ];
-
-            return $bubble;
-            */
-            return "done";
-         }
+         
       ?>
    </body>
 </html>

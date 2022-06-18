@@ -27,7 +27,8 @@
             case 'travel':
                echo "switch_travel<br>";
                $bubble = travel($data);
-               print_r($bubble);
+               //print_r($bubble);
+               echo json_encode($bubble);
                break;
          }
          

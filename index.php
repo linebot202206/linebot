@@ -4,7 +4,7 @@
    </head>
    <body>
       <?php
-      include('./connection.php');
+      include('./include/connection.php');
       $b = $a?:"失敗";
       echo $a;
       /*

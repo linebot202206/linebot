@@ -207,9 +207,9 @@ function travel($name, $data)
                "color" => "#0FAFBB",
                "weight" => "bold",
                "action" => [
-                    "type": "uri",
-                    "label": "action",
-                    "uri": $placeData['url']
+                    "type" => "uri",
+                    "label" => "action",
+                    "uri" => $placeData['url']
                 ]
             ];
 

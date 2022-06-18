@@ -4,9 +4,10 @@
    </head>
    <body>
       <?php
-      include('./include/connection.php');
-      $b = $a?:"失敗";
-      echo $a;
+      echo "789";
+      //include('./include/connection.php');
+      //$b = $a?:"失敗";
+      //echo $a;
       /*
          $dbhost = 'remotemysql.com:3306';
          $dbuser = '9b3cxQX9UY';

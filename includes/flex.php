@@ -1,5 +1,5 @@
 <?php
-include('./connection.php');
+require_once('connection.php');
 
 global $client, $message, $event;
 if (strtolower($message['text']) == "flex") {

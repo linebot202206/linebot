@@ -4,16 +4,6 @@ include('connection.php');
 global $client, $message, $event;
 if (strtolower($message['text']) == "flex") {
 
-    $client->replyMessage(array(
-        'replyToken' => $event['replyToken'],
-        'messages' => array(
-            array(
-                'type' => 'text',
-                'text' => '開始'
-            )
-        )
-    ));
-
     if(!$conn){
         $client->replyMessage(array(
             'replyToken' => $event['replyToken'],

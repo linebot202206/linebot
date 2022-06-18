@@ -1,6 +1,6 @@
 <?php
 global $client, $message, $event;
-if (strtolower($message['text']) == "flex") {
+if (strtolower($message['text']) == "2023跨年") {
     /* 注意，Flex Message Simulator 生成並轉換的陣列貼在這邊 */
     $name = strtolower($message['text']);
     if(!$name){

@@ -1,30 +1,8 @@
 <?php
-include('connection.php');
+include('./connection.php');
 
 global $client, $message, $event;
 if (strtolower($message['text']) == "flex") {
-
-    if(!$conn){
-        $client->replyMessage(array(
-            'replyToken' => $event['replyToken'],
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => '失敗'
-                )
-            )
-        ));
-    }else{
-        $client->replyMessage(array(
-            'replyToken' => $event['replyToken'],
-            'messages' => array(
-                array(
-                    'type' => 'text',
-                    'text' => '成功'
-                )
-            )
-        ));
-    }
 
     /* 注意，Flex Message Simulator 生成並轉換的陣列貼在這邊 */
     $name = "2023跨年";

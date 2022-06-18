@@ -206,6 +206,11 @@ function travel($name, $data)
                "size" => "sm",
                "color" => "#0FAFBB",
                "weight" => "bold",
+               "action" => [
+                    "type": "uri",
+                    "label": "action",
+                    "uri": $placeData['url']
+                ]
             ];
 
             $placeBox = [

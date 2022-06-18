@@ -85,6 +85,55 @@
                "weight" => "bold",
             ];
 
+            $placeBox = [$label, $dots, $place];
+
+            $spaceLeft = [
+               "type" => "box",
+               "layout" => "baseline",
+               "contents" => [],
+               "flex" => 1,
+            ];
+
+            $filler = [
+               "type" => "box",
+               "layout" => "vertical",
+               "contents" => [
+                  [
+                     "type" => "box",
+                     "layout" => "horizontal",
+                     "contents" => [
+                           ["type" => "filler"],
+                           [
+                              "type" => "box",
+                              "layout" => "vertical",
+                              "contents" => [],
+                              "width" => "2px",
+                              "backgroundColor" => "#4B656C"
+                           ],
+                           ["type" => "filler"],
+                        ],
+                     "flex" => 1,
+                  ],
+               ],
+               "width" => "12px",
+            ];
+
+            $spaceRight = [
+               "type" => "box",
+               "layout" => "baseline",
+               "contents" => [],
+               "flex" => 4,
+            ];
+
+            $fillerBox = [
+               "type" => "box",
+               "layout" => "horizontal",
+               "contents" => [$spaceLeft, $filler, $spaceRight],
+             ),
+             "spacing" => "lg",
+             "height" => "20px"
+            ];
+
             $bubble = [
                "type" => "bubble",
                "size" => "mega",
@@ -94,7 +143,7 @@
                   "contents" => [
                      "type" => "box",
                      "layout" => "horizontal",
-                     "contents" => [$label, $dots, $place],
+                     "contents" => [$placeBox,$fillerBox],
                      "spacing" => "lg",
                      "cornerRadius" => "30px",
                      "margin" => "xl",

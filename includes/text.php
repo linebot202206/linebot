@@ -1,5 +1,4 @@
 <?php
-require_once('connection.php');
 /**
  * Copyright 2020 GoneTone
  *

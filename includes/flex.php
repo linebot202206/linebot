@@ -1,6 +1,4 @@
 <?php
-require_once('connection.php');
-
 global $client, $message, $event;
 if (strtolower($message['text']) == "flex") {
     /* 注意，Flex Message Simulator 生成並轉換的陣列貼在這邊 */

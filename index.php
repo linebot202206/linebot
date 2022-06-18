@@ -27,6 +27,7 @@
             case 'travel':
                echo "switch_travel<br>";
                $bubble = travel($data);
+               print_r($bubble);
                break;
          }
          
@@ -43,7 +44,6 @@
 
          function travel($data)
          {
-            echo "執行travel<br>";
             $label = [
                "type" => "text",
                "text" => "租車",

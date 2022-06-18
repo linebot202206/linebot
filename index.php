@@ -5,6 +5,7 @@
    <body>
       <?php
       include('./connection.php');
+      $b = $a?:"失敗";
       echo $a;
       /*
          $dbhost = 'remotemysql.com:3306';

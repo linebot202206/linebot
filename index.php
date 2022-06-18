@@ -4,6 +4,9 @@
    </head>
    <body>
       <?php
+      include('./connection.php');
+      echo $a;
+      /*
          $dbhost = 'remotemysql.com:3306';
          $dbuser = '9b3cxQX9UY';
          $dbpass = '3EdzRNODN8';
@@ -42,6 +45,7 @@
          }
          */
          //mysqli_close($conn);
+         /*
 
          function travel($data)
          {
@@ -155,6 +159,7 @@
 
             return $bubble;
          }
+         */
          
       ?>
    </body>

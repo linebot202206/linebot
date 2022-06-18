@@ -211,7 +211,7 @@ function travel($name, $data)
                 $place['action'] = [
                     "type" => "uri",
                     "label" => "action",
-                    "uri" => $placeData['url']
+                    "uri" => "https://liff.line.me/1657231784-R4vDzKzK?url=".$placeData['url']
                 ];
             }
 

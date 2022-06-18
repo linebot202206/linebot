@@ -9,4 +9,5 @@ if(! $conn ) {
 }
 mysqli_select_db($conn, '9b3cxQX9UY');
 //mysqli_close($conn);
+$a = 123;
 ?>

@@ -5,7 +5,7 @@
    <body>
       <?php
       echo "789";
-      //include('./include/connection.php');
+      require_once('includes/connection.php');
       //$b = $a?:"失敗";
       //echo $a;
       /*

@@ -1,8 +1,8 @@
 <?php
 global $client, $message, $event;
-if (strtolower($message['text']) == "flex") {
+if (strtolower($message['text']) == "flex" || $config['type'] == "flex") {
     /* 注意，Flex Message Simulator 生成並轉換的陣列貼在這邊 */
-    $name = "2023跨年";
+    $name = $message['text'];
     $contentsArray = output($name);
 
     $client->replyMessage(array(
@@ -21,15 +21,6 @@ if (strtolower($message['text']) == "flex") {
 function output($name)
 {
     global $conn;
-    $dbhost = 'remotemysql.com:3306';
-    $dbuser = '9b3cxQX9UY';
-    $dbpass = '3EdzRNODN8';
-    $conn = mysqli_connect($dbhost, $dbuser, $dbpass);
-     
-    if(! $conn ) {
-       die('Could not connect: ' . mysqli_error());
-    }
-    mysqli_select_db($conn, '9b3cxQX9UY');
     //取得table
     $sql = "SELECT * FROM `config` WHERE `name` = '$name'";
     //$sql = 'SELECT * FROM travel20221231 ORDER BY day ASC, num ASC';

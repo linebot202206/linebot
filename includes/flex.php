@@ -2,18 +2,18 @@
 global $client, $message, $event;
 if (strtolower($message['text']) == "flex") {
     /* 注意，Flex Message Simulator 生成並轉換的陣列貼在這邊 */
-    $name = "2023跨年";
-    $a = strtolower($message['text'])?:"失敗";
-
-    $client->replyMessage(array(
-        'replyToken' => $event['replyToken'],
-        'messages' => array(
-            array(
-                'type' => 'text',
-                'text' => $a
+    $name = strtolower($message['text']);
+    if(!$name){
+        $client->replyMessage(array(
+            'replyToken' => $event['replyToken'],
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => "無此指令"
+                )
             )
-        )
-    ));
+        ));
+    }
 
     $contentsArray = output($name);
 

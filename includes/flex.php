@@ -86,10 +86,32 @@ require_once('includes/connection.php');
 */
 global $client, $message, $event;
 if (strtolower($message['text']) == "flex") {
+
+    $client->replyMessage(array(
+        'replyToken' => $event['replyToken'],
+        'messages' => array(
+            array(
+                'type' => 'text',
+                'text' => '開始'
+            )
+        )
+    ));
+
     /* 注意，Flex Message Simulator 生成並轉換的陣列貼在這邊 */
     $name = "2023跨年";
-    output($name);
     $contentsArray = output($name);
+
+    if(!$contentsArray){
+        $client->replyMessage(array(
+            'replyToken' => $event['replyToken'],
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => '失敗'
+                )
+            )
+        ));
+    }
 
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],
@@ -105,6 +127,7 @@ if (strtolower($message['text']) == "flex") {
 
 function output($name)
 {
+    return;
     //取得table
     $sql = "SELECT * FROM `config` WHERE `name` = '$name'";
     //$sql = 'SELECT * FROM travel20221231 ORDER BY day ASC, num ASC';

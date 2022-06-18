@@ -129,9 +129,8 @@
                "type" => "box",
                "layout" => "horizontal",
                "contents" => [$spaceLeft, $filler, $spaceRight],
-             ),
-             "spacing" => "lg",
-             "height" => "20px"
+               "spacing" => "lg",
+               "height" => "20px"
             ];
 
             $bubble = [
@@ -141,12 +140,15 @@
                   "type" => "box",
                   "layout" => "vertical",
                   "contents" => [
-                     "type" => "box",
-                     "layout" => "horizontal",
-                     "contents" => [$placeBox,$fillerBox],
-                     "spacing" => "lg",
-                     "cornerRadius" => "30px",
-                     "margin" => "xl",
+                        [
+                        "type" => "box",
+                        "layout" => "horizontal",
+                        "contents" => $placeBox,
+                        "spacing" => "lg",
+                        "cornerRadius" => "30px",
+                        "margin" => "xl",
+                       ],
+                       $fillerBox,
                   ],
                ],
             ];

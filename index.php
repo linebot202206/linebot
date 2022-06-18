@@ -25,8 +25,8 @@
          switch ($type) {
             case 'travel':
                echo "switch_travel<br>";
-               $bubble = travel($data);
-               print_r($bubble);
+               //$bubble = travel($data);
+               //print_r($bubble);
                break;
          }
          /*

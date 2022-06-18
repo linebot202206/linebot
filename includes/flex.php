@@ -97,11 +97,7 @@ if (strtolower($message['text']) == "flex") {
         )
     ));
 
-    /* 注意，Flex Message Simulator 生成並轉換的陣列貼在這邊 */
-    $name = "2023跨年";
-    $contentsArray = output($name);
-
-    if(!$contentsArray){
+    if(!$conn){
         $client->replyMessage(array(
             'replyToken' => $event['replyToken'],
             'messages' => array(
@@ -112,6 +108,10 @@ if (strtolower($message['text']) == "flex") {
             )
         ));
     }
+
+    /* 注意，Flex Message Simulator 生成並轉換的陣列貼在這邊 */
+    $name = "2023跨年";
+    $contentsArray = output($name);
 
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],

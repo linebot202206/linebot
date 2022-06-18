@@ -1,4 +1,5 @@
 <?php
+require_once('includes/connection.php');
 /**
  * Copyright 2021 GoneTone
  *
@@ -83,7 +84,7 @@
 }
 ==============================
 */
-global $client, $message, $event, $conn;
+global $client, $message, $event;
 if (strtolower($message['text']) == "flex") {
     /* 注意，Flex Message Simulator 生成並轉換的陣列貼在這邊 */
     $name = "2023跨年";

@@ -43,6 +43,8 @@
          public function travel($data)
          {
             echo "執行travel<br>";
+            
+            /*
             $label = [
                "type" => "text",
                "text" => "租車",
@@ -101,6 +103,8 @@
             ];
 
             return $bubble;
+            */
+            return "done";
          }
       ?>
    </body>

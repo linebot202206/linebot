@@ -22,6 +22,12 @@
 
          $data = $row = mysqli_fetch_array($retval);
          $type = "travel";
+      
+         switch ($type) {
+            case 'travel':
+               echo "switch_travel<br>";
+               break;
+         }
          
          /*
          while($row = mysqli_fetch_array($retval)) {

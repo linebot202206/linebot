@@ -6,8 +6,8 @@
       <?php
       echo "789";
       require_once('includes/connection.php');
-      //$b = $a?:"失敗";
-      //echo $a;
+      $b = $a?:"失敗";
+      echo $a;
       /*
          $dbhost = 'remotemysql.com:3306';
          $dbuser = '9b3cxQX9UY';

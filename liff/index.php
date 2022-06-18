@@ -6,7 +6,7 @@
   <body>
     <?php
     $urlData = urldecode($_SERVER['QUERY_STRING']);
-    $url = substr(explode("?",$urlData)[1], 4);
+    $url = urldecode(substr(explode("?",$urlData)[1], 4));
     echo $url;
     //header("Location: $url");
     exit;

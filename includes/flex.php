@@ -83,7 +83,7 @@
 }
 ==============================
 */
-global $client, $message, $event;
+global $client, $message, $event, $conn;
 if (strtolower($message['text']) == "flex") {
     /* 注意，Flex Message Simulator 生成並轉換的陣列貼在這邊 */
     $name = "2023跨年";

@@ -59,6 +59,7 @@ foreach ($client->parseEvents() as $event) {
             $message = $event['message'];
             switch ($message['type']) {
                 case 'text': //訊息為文字
+                    require_once('includes/connection.php'); //Type: Text
                     require_once('includes/text.php'); //Type: Text
                     require_once('includes/image.php'); //Type: Image
                     require_once('includes/video.php'); //Type: Video
@@ -83,10 +84,7 @@ foreach ($client->parseEvents() as $event) {
                 'messages' => array(
                     array(
                         'type' => 'text',
-                        'text' => '您好，這是一個範例 Bot OuO
-
-範例程式開源至 GitHub (包含教學)：
-https://github.com/GoneTone/line-example-bot-php'
+                        'text' => '您好，這是一個範例 Bot OuO'
                     )
                 )
             ));
@@ -97,10 +95,7 @@ https://github.com/GoneTone/line-example-bot-php'
                 'messages' => array(
                     array(
                         'type' => 'text',
-                        'text' => '大家好，這是一個範例 Bot OuO
-
-範例程式開源至 GitHub (包含教學)：
-https://github.com/GoneTone/line-example-bot-php'
+                        'text' => '大家好，這是一個範例 Bot OuO'
                     )
                 )
             ));

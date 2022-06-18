@@ -3,7 +3,6 @@ include('./connection.php');
 
 global $client, $message, $event;
 if (strtolower($message['text']) == "flex") {
-
     /* 注意，Flex Message Simulator 生成並轉換的陣列貼在這邊 */
     $name = "2023跨年";
     $contentsArray = output($name);
@@ -22,6 +21,7 @@ if (strtolower($message['text']) == "flex") {
 
 function output($name)
 {
+    global $conn;
     //取得table
     $sql = "SELECT * FROM `config` WHERE `name` = '$name'";
     //$sql = 'SELECT * FROM travel20221231 ORDER BY day ASC, num ASC';

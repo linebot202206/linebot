@@ -1,5 +1,5 @@
 <?php
-require_once('includes/connection.php');
+include('connection.php');
 /**
  * Copyright 2021 GoneTone
  *

@@ -407,6 +407,30 @@ function introduce($name)
     $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
     $q = $row['name']?:"失敗";
 
+    $address = [
+        "type" => "box",
+        "layout" => "baseline",
+        "spacing" => "sm",
+        "contents" => [
+            [
+                "type" => "text",
+                "text" => "地址",
+                "color" => "#aaaaaa",
+                "size" => "sm",
+                "flex" => 1,
+                "weight" => "bold"
+            ],
+            [
+                "type" => "text",
+                "text" => $row['address'],
+                "wrap" => true,
+                "color" => "#666666",
+                "size" => "sm",
+                "flex" => 5
+            ]
+        ]
+    ];
+
 
     $r = array(
     "type" => "bubble",
@@ -433,29 +457,7 @@ function introduce($name)
                 "margin" => "lg",
                 "spacing" => "sm",
                 "contents" => array(
-                    array(
-                        "type" => "box",
-                        "layout" => "baseline",
-                        "spacing" => "sm",
-                        "contents" => array(
-                            array(
-                                "type" => "text",
-                                "text" => "地址",
-                                "color" => "#aaaaaa",
-                                "size" => "sm",
-                                "flex" => 1,
-                                "weight" => "bold"
-                            ),
-                            array(
-                                "type" => "text",
-                                "text" => "新北市板橋區文化路二段266號",
-                                "wrap" => true,
-                                "color" => "#666666",
-                                "size" => "sm",
-                                "flex" => 5
-                            )
-                        )
-                    ),
+                    $address,
                     array(
                         "type" => "box",
                         "layout" => "baseline",

@@ -394,7 +394,7 @@ function travel($name, $data)
     return $bubble;
 }
 
-function introduce($message)
+function introduce($name)
 {
     $dbhost = 'remotemysql.com:3306';
     $dbuser = '9b3cxQX9UY';
@@ -406,7 +406,7 @@ function introduce($message)
     }
     mysqli_select_db($conn, '9b3cxQX9UY');
     //取得table
-    $sql = "SELECT * FROM `place` WHERE `name` = '$message'";
+    $sql = "SELECT * FROM `place` WHERE `name` = '$name'";
     //$sql = 'SELECT * FROM travel20221231 ORDER BY day ASC, num ASC';
     $retval = mysqli_query( $conn, $sql );
     if(!$retval ) {

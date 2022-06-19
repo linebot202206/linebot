@@ -22,8 +22,17 @@
 */
 global $client, $message, $event;
 if (strtolower($message['text']) == "text" || $message['text'] == "文字") {
+<<<<<<< HEAD
     //$profile = json_decode($client-> profile(), true);
 
+=======
+    $profile = $client-> profile();
+    if($profile['displayName']){
+        $check = "OK";
+    }else{
+        $check = "NO";
+    }
+>>>>>>> parent of 9d0cc36 (try)
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],
         'messages' => array(

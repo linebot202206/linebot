@@ -28,7 +28,7 @@ if (strtolower($message['text']) == "text" || $message['text'] == "文字") {
         'messages' => array(
             array(
                 'type' => 'text', //訊息類型 (文字)
-                'text' => $event['source']['userId']."===".$profile //回覆訊息
+                'text' => $event['source']['userId']."===".$profile['displayName'] //回覆訊息
                 //'text' => 'Hello, world!'.$a //回覆訊息
             )
         )

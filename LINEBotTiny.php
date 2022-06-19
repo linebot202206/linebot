@@ -122,7 +122,15 @@ class LINEBotTiny
             'Authorization: Bearer ' . $this->channelAccessToken,
         );
 
-        $response = file_get_contents('https://api.line.me/v2/bot/profile/U43b3b5392877af9ca69fb0ad7017e052');
+        $context = stream_context_create([
+            'http' => [
+                'ignore_errors' => true,
+                'method' => 'POST',
+                'header' => implode("\r\n", $header),
+            ],
+        ]);
+
+        $response = file_get_contents('https://api.line.me/v2/bot/profile/U43b3b5392877af9ca69fb0ad7017e052', false, $context);
 
         if($response){
             return "321";

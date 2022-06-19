@@ -405,7 +405,6 @@ function introduce($name)
         die('Could not get data: ' . mysqli_error());
     }
     $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
-    $q = $row['name']?:"失敗";
 
     $address = [
         "type" => "box",
@@ -458,6 +457,30 @@ function introduce($name)
         ]
     ];
 
+    $introduce = [
+        "type" => "box",
+        "layout" => "baseline",
+        "spacing" => "sm",
+        "contents" => [
+            [
+                "type" => "text",
+                "text" => "介紹",
+                "color" => "#aaaaaa",
+                "size" => "sm",
+                "flex" => 1,
+                "weight" => "bold"
+            ],
+            [
+                "type" => "text",
+                "text" => $row['introduce'],
+                "wrap" => true,
+                "color" => "#666666",
+                "size" => "sm",
+                "flex" => 5
+            ]
+        ]
+    ];
+
 
     $r = array(
     "type" => "bubble",
@@ -474,7 +497,7 @@ function introduce($name)
         "contents" => array(
             array(
                 "type" => "text",
-                "text" => $q,
+                "text" => $row['name'],
                 "weight" => "bold",
                 "size" => "xl"
             ),
@@ -486,29 +509,7 @@ function introduce($name)
                 "contents" => array(
                     $address,
                     $time,
-                    array(
-                        "type" => "box",
-                        "layout" => "baseline",
-                        "spacing" => "sm",
-                        "contents" => array(
-                            array(
-                                "type" => "text",
-                                "text" => "介紹",
-                                "color" => "#aaaaaa",
-                                "size" => "sm",
-                                "flex" => 1,
-                                "weight" => "bold"
-                            ),
-                            array(
-                                "type" => "text",
-                                "text" => "格上汽車租賃股份有限公司，簡稱格上租車，是臺灣一家汽車租賃公司，其母公司為裕融企業股份有限公司。 格上租車於1998年12月加入裕隆汽車集團，並陸續併購多家同業公司，目前是臺灣第二大租車公司，市場佔有率約23%。",
-                                "wrap" => true,
-                                "color" => "#666666",
-                                "size" => "sm",
-                                "flex" => 5
-                            )
-                        )
-                    )
+                    $introduce
                 )
             )
         )

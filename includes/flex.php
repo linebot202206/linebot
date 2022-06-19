@@ -529,7 +529,7 @@ function introduce($name)
         "type" => "bubble",
         "hero" => [
             "type" => "image",
-            "url" => "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+            "url" => "https://linebot202206.herokuapp.com/img/".$row['img'].".png",
             "size" => "full",
             "aspectRatio" => "20:13",
             "aspectMode" => "cover"

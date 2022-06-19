@@ -5,8 +5,19 @@ if ($type == "flex") {
     $name = strtolower($name);
     if($data[$name]['label'] == "travel"){
         $contentsArray = output($name);
-    }elseif ($config['label'] == "introduce") {
+    }elseif ($data[$name]['label'] == "introduce") {
+        $contentsArray = introduce();
     }
+
+    $client->replyMessage(array(
+        'replyToken' => $event['replyToken'],
+        'messages' => array(
+            array(
+                'type' => 'text',
+                'text' => '您好，這是一個範例'.$data[$name]['label']
+            )
+        )
+    ));
 
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],

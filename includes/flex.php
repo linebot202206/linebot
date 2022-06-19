@@ -4,16 +4,6 @@ if ($type == "flex") {
     /* 注意，Flex Message Simulator 生成並轉換的陣列貼在這邊 */
     $name = strtolower($name);
 
-    $client->replyMessage(array(
-        'replyToken' => $event['replyToken'],
-        'messages' => array(
-            array(
-                'type' => 'text',
-                'text' => '您好，這是一個範例'.$data[$command[0]]['label']
-            )
-        )
-    ));
-
     switch ($data[$command[0]]['label']) {
         case 'travel':
             $contentsArray = output($name);
@@ -407,18 +397,9 @@ function travel($name, $data)
 function introduce($name)
 {
     $name = "格下租車";
-    $dbhost = 'remotemysql.com:3306';
-    $dbuser = '9b3cxQX9UY';
-    $dbpass = '3EdzRNODN8';
-    $conn = mysqli_connect($dbhost, $dbuser, $dbpass);
-       
-    if(! $conn ) {
-        die('Could not connect: ' . mysqli_error());
-    }
-    mysqli_select_db($conn, '9b3cxQX9UY');
+    global $conn;
     //取得table
-    $sql = "SELECT * FROM `place` WHERE `name` = '$name'";
-    //$sql = 'SELECT * FROM travel20221231 ORDER BY day ASC, num ASC';
+    $sql = "SELECT * FROM `place` WHERE `name` = '格下租車'";
     $retval = mysqli_query( $conn, $sql );
     if(!$retval ) {
         die('Could not get data: ' . mysqli_error());

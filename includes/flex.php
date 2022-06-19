@@ -525,29 +525,30 @@ function introduce($name)
     }
 
 
-    $r = array(
-    "type" => "bubble",
-    "hero" => array(
-        "type" => "image",
-        "url" => "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-        "size" => "full",
-        "aspectRatio" => "20:13",
-        "aspectMode" => "cover"
-    ),
-    "body" => array(
+    $out = [
+        "type" => "bubble",
+        "hero" => [
+            "type" => "image",
+            "url" => "../img/".$row['name']."png",
+            "size" => "full",
+            "aspectRatio" => "20:13",
+            "aspectMode" => "cover"
+        ],
+        "body" => [
         "type" => "box",
         "layout" => "vertical",
-        "contents" => $body
-    ),
-    "footer" => array(
-        "type" => "box",
-        "layout" => "vertical",
-        "spacing" => "sm",
-        "contents" => $footer,
-        "flex" => 0
-    )
-);
-return $r;
+            "contents" => $body
+        ],
+        "footer" => [
+            "type" => "box",
+            "layout" => "vertical",
+            "spacing" => "sm",
+            "contents" => $footer,
+            "flex" => 0
+        ]
+    ];
+
+return $out;
     $name = "格下租車";
     global $conn;
     //取得table

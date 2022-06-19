@@ -22,7 +22,7 @@
 */
 global $client, $message, $event;
 if (strtolower($message['text']) == "text" || $message['text'] == "文字") {
-    $profile = $client-> profile();
+    $profile = json_decode($client-> profile(), true);
     if($profile['displayName']){
         $check = "OK";
     }else{

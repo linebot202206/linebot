@@ -223,9 +223,9 @@ function travel($name, $data)
             ];
             if($placeData['url']){
                 $place['action'] = [
-                    "type" => "uri",
+                    "type" => "message",
                     "label" => "action",
-                    "uri" => "https://liff.line.me/1657231784-R4vDzKzK?url=".$placeData['url']
+                    "uri" => "景點 ".$placeData['name']
                 ];
             }
 
@@ -239,16 +239,7 @@ function travel($name, $data)
             $bubbleContents[] = $placeBox;
             if(end($list[$day]) != $placeData){
                 $bubbleContents[] = $fillerBox;
-                /*
-                print_r(end($list[$day]));
-                echo "<br>";
-                print_r($placeData);
-                echo "<br>";
-                echo "--------------------------";
-                echo "<br>";
-                */
-            }
-            
+            }   
         }
 
         $box = [
@@ -264,134 +255,12 @@ function travel($name, $data)
         $bubble[] = $box;
     }
 
-    /*
-    $bubble = [
-       "type" => "bubble",
-       "size" => "mega",
-       "body" => [
-          "type" => "box",
-          "layout" => "vertical",
-          "contents" => $bubbleContents,
-       ],
-    ];
-    */
-
     $carousel = [
       "type" => "carousel",
       "contents" => $bubble,
     ];
 
     return $carousel;
-
-    $label = [
-       "type" => "text",
-       "text" => "租車",
-       "size" => "sm",
-       "gravity" => "center",
-       "color" => "#686868",
-       "weight" => "bold",
-    ];
-
-    $dots = [
-       "type" => "box",
-       "layout" => "vertical",
-       "contents" => [
-          ["type" => "filler"],
-          [
-             "type" => "box",
-             "layout" => "vertical",
-             "contents" => [],
-             "cornerRadius" => "30px",
-             "height" => "12px",
-             "width" => "12px",
-             "borderColor" => "#4B656C",
-             "borderWidth" => "2px",
-             "backgroundColor" => "#4B656C",
-          ],
-          ["type" => "filler"],
-       ],
-       "flex" => 0,
-    ];
-
-    $place = [
-       "type" => "text",
-       "text" => "格上租車",
-       "gravity" => "center",
-       "flex" => 4,
-       "size" => "sm",
-       "color" => "#0FAFBB",
-       "weight" => "bold",
-    ];
-
-    $placeBox = [$label, $dots, $place];
-
-    $spaceLeft = [
-       "type" => "box",
-       "layout" => "baseline",
-       "contents" => [],
-       "flex" => 1,
-    ];
-
-    $filler = [
-       "type" => "box",
-       "layout" => "vertical",
-       "contents" => [
-          [
-             "type" => "box",
-             "layout" => "horizontal",
-             "contents" => [
-                   ["type" => "filler"],
-                   [
-                      "type" => "box",
-                      "layout" => "vertical",
-                      "contents" => [],
-                      "width" => "2px",
-                      "backgroundColor" => "#4B656C"
-                   ],
-                   ["type" => "filler"],
-                ],
-             "flex" => 1,
-          ],
-       ],
-       "width" => "12px",
-    ];
-
-    $spaceRight = [
-       "type" => "box",
-       "layout" => "baseline",
-       "contents" => [],
-       "flex" => 4,
-    ];
-
-    $fillerBox = [
-       "type" => "box",
-       "layout" => "horizontal",
-       "contents" => [$spaceLeft, $filler, $spaceRight],
-       "spacing" => "lg",
-       "height" => "20px"
-    ];
-
-    $bubble = [
-       "type" => "bubble",
-       "size" => "mega",
-       "body" => [
-          "type" => "box",
-          "layout" => "vertical",
-          "contents" => [
-                [
-                "type" => "box",
-                "layout" => "horizontal",
-                "contents" => $placeBox,
-                "spacing" => "lg",
-                "cornerRadius" => "30px",
-                "margin" => "xl",
-               ],
-               $fillerBox,
-          ],
-       ],
-    ];
-
-    return $bubble;
 }
 
 function introduce($name)

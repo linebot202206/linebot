@@ -265,10 +265,9 @@ function travel($name, $data)
 
 function introduce($name)
 {
-    $name = "格下租車";
     global $conn;
     //取得table
-    $sql = "SELECT * FROM `place` WHERE `name` = '格下租車'";
+    $sql = "SELECT * FROM `place` WHERE `name` = '$name'";
     $retval = mysqli_query( $conn, $sql );
     if(!$retval ) {
         die('Could not get data: ' . mysqli_error());

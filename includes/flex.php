@@ -9,7 +9,7 @@ if ($type == "flex") {
             $contentsArray = output($name);
             break;
         case 'introduce':
-            $contentsArray = introduce();
+            $contentsArray = introduce($name);
             break;
         default:
             # code...

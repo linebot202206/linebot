@@ -543,10 +543,7 @@ function introduce($name)
         "type" => "box",
         "layout" => "vertical",
         "spacing" => "sm",
-        "contents" => array(
-            $google,
-            $map
-        ),
+        "contents" => $footer,
         "flex" => 0
     )
 );

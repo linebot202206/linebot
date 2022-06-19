@@ -123,6 +123,12 @@ class LINEBotTiny
         );
 
         $response = file_get_contents('https://api.line.me/v2/bot/profile/U43b3b5392877af9ca69fb0ad7017e052');
+
+        if($response){
+            return "321";
+        }else{
+            return "456";
+        }
         
         return $response;
     }

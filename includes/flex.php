@@ -62,8 +62,9 @@ function output($name)
         case 'travel':
            $bubble = travel($name, $data);
            return $bubble;
-           echo json_encode($bubble);
-           break;
+        case 'introduce':
+           $introduce = introduce($message);
+           return $introduce;
     }
     //mysqli_close($conn);
 }
@@ -393,141 +394,168 @@ function travel($name, $data)
     return $bubble;
 }
 
-function introduce()
+function introduce($message)
 {
-    $arr = array(
+    $dbhost = 'remotemysql.com:3306';
+    $dbuser = '9b3cxQX9UY';
+    $dbpass = '3EdzRNODN8';
+    $conn = mysqli_connect($dbhost, $dbuser, $dbpass);
+       
+    if(! $conn ) {
+        die('Could not connect: ' . mysqli_error());
+    }
+    mysqli_select_db($conn, '9b3cxQX9UY');
+    //取得table
+    $sql = "SELECT * FROM `place` WHERE `name` = '$message'";
+    //$sql = 'SELECT * FROM travel20221231 ORDER BY day ASC, num ASC';
+    $retval = mysqli_query( $conn, $sql );
+    if(!$retval ) {
+        die('Could not get data: ' . mysqli_error());
+    }
+    $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
+
+    $address = [
+        "type" => "box",
+        "layout" => "baseline",
+        "spacing" => "sm",
+        "contents" => [
+            [
+                "type" => "text",
+                "text" => "地址",
+                "color" => "#aaaaaa",
+                "size" => "sm",
+                "flex" => 1,
+                "weight" => "bold"
+            ],
+            [
+                "type" => "text",
+                "text" => $row['address'],
+                "wrap" => true,
+                "color" => "#666666",
+                "size" => "sm",
+                "flex" => 5
+            ]
+        ]
+    ];
+
+    //echo date("w",strtotime(time()));
+    $now = time();
+    $weekday = date('w', $now);
+    $openTime = json_decode($row['time'], TRUE);
+    $time = [
+        "type" => "box",
+        "layout" => "baseline",
+        "spacing" => "sm",
+        "contents" => [
+            [
+                "type" => "text",
+                "text" => "時間",
+                "color" => "#aaaaaa",
+                "size" => "sm",
+                "flex" => 1,
+                "weight" => "bold"
+            ],
+            [
+                "type" => "text",
+                "text" => $openTime[$weekday],
+                "wrap" => true,
+                "color" => "#666666",
+                "size" => "sm",
+                "flex" => 5
+            ]
+        ]
+    ];
+
+    $introduce = [
+        "type" => "box",
+        "layout" => "baseline",
+        "spacing" => "sm",
+        "contents" => [
+            [
+                "type" => "text",
+                "text" => "介紹",
+                "color" => "#aaaaaa",
+                "size" => "sm",
+                "flex" => 1,
+                "weight" => "bold"
+            ],
+            [
+                "type" => "text",
+                "text" => $row['introduce'],
+                "wrap" => true,
+                "color" => "#666666",
+                "size" => "sm",
+                "flex" => 5
+            ]
+        ]
+    ];
+
+    $body = [
+        [
+            "type" => "text",
+            "text" => $row['name'],
+            "weight" => "bold",
+            "size" => "xl"
+        ],
+        [
+            "type" => "box",
+            "layout" => "vertical",
+            "margin" => "lg",
+            "spacing" => "sm",
+            "contents" => [$address, $time, $introduce]
+        ],
+    ];
+
+    $footer = [];
+    if($row['introduce_url']){
+        $google = [
+            "type" => "button",
+            "style" => "link",
+            "height" => "sm",
+            "action" => [
+              "type" => "uri",
+              "label" => "Google",
+              "uri" => $row['introduce_url']
+            ]
+        ];
+        $footer[] = $google;
+    }
+    if($row['map_url']){
+        $map = [
+            "type" => "button",
+            "style" => "link",
+            "height" => "sm",
+            "action" => [
+              "type" => "uri",
+              "label" => "開啟地圖",
+              "uri" => $row['map_url']
+            ]
+        ];
+        $footer[] = $map;
+    }
+
+    $out = [
         "type" => "bubble",
-        "hero" => array(
+        "hero" => [
             "type" => "image",
-            "url" => "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+            "url" => "img/".$row['name']."png",
             "size" => "full",
             "aspectRatio" => "20:13",
             "aspectMode" => "cover"
-        ),
-        "body" => array(
-            "type" => "box",
-            "layout" => "vertical",
-            "contents" => array(
-                array(
-                    "type" => "text",
-                    "text" => "Brown Cafe",
-                    "weight" => "bold",
-                    "size" => "xl"
-                ),
-                array(
-                    "type" => "box",
-                    "layout" => "vertical",
-                    "margin" => "lg",
-                    "spacing" => "sm",
-                    "contents" => array(
-                        array(
-                            "type" => "box",
-                            "layout" => "baseline",
-                            "spacing" => "sm",
-                            "contents" => array(
-                                array(
-                                    "type" => "text",
-                                    "text" => "地址",
-                                    "color" => "#aaaaaa",
-                                    "size" => "sm",
-                                    "flex" => 1,
-                                    "weight" => "bold"
-                                ),
-                                array(
-                                    "type" => "text",
-                                    "text" => "新北市板橋區文化路二段266號",
-                                    "wrap" => true,
-                                    "color" => "#666666",
-                                    "size" => "sm",
-                                    "flex" => 5
-                                )
-                            )
-                        ),
-                        array(
-                            "type" => "box",
-                            "layout" => "baseline",
-                            "spacing" => "sm",
-                            "contents" => array(
-                                array(
-                                    "type" => "text",
-                                    "text" => "時間",
-                                    "color" => "#aaaaaa",
-                                    "size" => "sm",
-                                    "flex" => 1,
-                                    "weight" => "bold"
-                                ),
-                                array(
-                                    "type" => "text",
-                                    "text" => "08:30 - 20:30",
-                                    "wrap" => true,
-                                    "color" => "#666666",
-                                    "size" => "sm",
-                                    "flex" => 5
-                                )
-                            )
-                        ),
-                        array(
-                            "type" => "box",
-                            "layout" => "baseline",
-                            "spacing" => "sm",
-                            "contents" => array(
-                                array(
-                                    "type" => "text",
-                                    "text" => "介紹",
-                                    "color" => "#aaaaaa",
-                                    "size" => "sm",
-                                    "flex" => 1,
-                                    "weight" => "bold"
-                                ),
-                                array(
-                                    "type" => "text",
-                                    "text" => "格上汽車租賃股份有限公司，簡稱格上租車，是臺灣一家汽車租賃公司，其母公司為裕融企業股份有限公司。 格上租車於1998年12月加入裕隆汽車集團，並陸續併購多家同業公司，目前是臺灣第二大租車公司，市場佔有率約23%。",
-                                    "wrap" => true,
-                                    "color" => "#666666",
-                                    "size" => "sm",
-                                    "flex" => 5
-                                )
-                            )
-                        )
-                    )
-                )
-            )
-        ),
-        "footer" => array(
+        ],
+        "body" => [
+        "type" => "box",
+        "layout" => "vertical",
+            "contents" => $body
+        ],
+        "footer" => [
             "type" => "box",
             "layout" => "vertical",
             "spacing" => "sm",
-            "contents" => array(
-                array(
-                    "type" => "button",
-                    "style" => "link",
-                    "height" => "sm",
-                    "action" => array(
-                        "type" => "uri",
-                        "label" => "Google",
-                        "uri" => "https://linecorp.com"
-                    )
-                ),
-                array(
-                    "type" => "button",
-                    "style" => "link",
-                    "height" => "sm",
-                    "action" => array(
-                        "type" => "uri",
-                        "label" => "開啟地圖",
-                        "uri" => "https://linecorp.com"
-                    )
-                ),
-                array(
-                    "type" => "box",
-                    "layout" => "vertical",
-                    "contents" => array(),
-                    "margin" => "sm"
-                )
-            ),
+            "contents" => $footer,
             "flex" => 0
-        )
-    );
-
-    return $arr;
+        ]
+    ];
+    
+    return $out;
 }

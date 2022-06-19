@@ -431,6 +431,33 @@ function introduce($name)
         ]
     ];
 
+    $now = time();
+    $weekday = date('w', $now);
+    $openTime = json_decode($row['time'], TRUE);
+    $time = [
+        "type" => "box",
+        "layout" => "baseline",
+        "spacing" => "sm",
+        "contents" => [
+            [
+                "type" => "text",
+                "text" => "時間",
+                "color" => "#aaaaaa",
+                "size" => "sm",
+                "flex" => 1,
+                "weight" => "bold"
+            ],
+            [
+                "type" => "text",
+                "text" => $openTime[$weekday],
+                "wrap" => true,
+                "color" => "#666666",
+                "size" => "sm",
+                "flex" => 5
+            ]
+        ]
+    ];
+
 
     $r = array(
     "type" => "bubble",
@@ -458,29 +485,7 @@ function introduce($name)
                 "spacing" => "sm",
                 "contents" => array(
                     $address,
-                    array(
-                        "type" => "box",
-                        "layout" => "baseline",
-                        "spacing" => "sm",
-                        "contents" => array(
-                            array(
-                                "type" => "text",
-                                "text" => "時間",
-                                "color" => "#aaaaaa",
-                                "size" => "sm",
-                                "flex" => 1,
-                                "weight" => "bold"
-                            ),
-                            array(
-                                "type" => "text",
-                                "text" => "08:30 - 20:30",
-                                "wrap" => true,
-                                "color" => "#666666",
-                                "size" => "sm",
-                                "flex" => 5
-                            )
-                        )
-                    ),
+                    $time,
                     array(
                         "type" => "box",
                         "layout" => "baseline",

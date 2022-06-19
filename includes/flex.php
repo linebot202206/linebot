@@ -221,7 +221,7 @@ function travel($name, $data)
                "color" => "#0FAFBB",
                "weight" => "bold",
             ];
-            if($placeData['url']){
+            if($placeData['introduce']){
                 $place['action'] = [
                     "type" => "message",
                     "label" => "action",

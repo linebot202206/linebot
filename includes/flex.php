@@ -4,6 +4,16 @@ if ($type == "flex") {
     /* 注意，Flex Message Simulator 生成並轉換的陣列貼在這邊 */
     $name = strtolower($name);
 
+    $client->replyMessage(array(
+        'replyToken' => $event['replyToken'],
+        'messages' => array(
+            array(
+                'type' => 'text',
+                'text' => '您好，這是一個範例'.$data[$command[0]]['label']
+            )
+        )
+    ));
+
     switch ($data[$command[0]]['label']) {
         case 'travel':
             $contentsArray = output($name);

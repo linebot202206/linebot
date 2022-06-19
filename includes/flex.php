@@ -3,7 +3,7 @@ global $client, $message, $event;
 if ($type == "flex") {
     /* 注意，Flex Message Simulator 生成並轉換的陣列貼在這邊 */
     $name = strtolower($name);
-    if($config['label'] == "travel"){
+    if($data[$name]['label'] == "travel"){
         $contentsArray = output($name);
     }elseif ($config['label'] == "introduce") {
     }

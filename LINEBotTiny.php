@@ -115,7 +115,7 @@ class LINEBotTiny
         }
     }
 
-    public function profile()
+    public function profile($userId)
     {
         /*
         Response = 

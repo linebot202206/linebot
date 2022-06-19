@@ -22,7 +22,7 @@
 */
 global $client, $message, $event;
 if (strtolower($message['text']) == "text" || $message['text'] == "文字") {
-    $profile = $client->profile();
+    $profile = $client->profile($event['source']['userId']);
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],
         'messages' => array(

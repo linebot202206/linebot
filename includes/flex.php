@@ -396,6 +396,140 @@ function travel($name, $data)
 
 function introduce($name)
 {
+    $r = array(
+    "type" => "bubble",
+    "hero" => array(
+        "type" => "image",
+        "url" => "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+        "size" => "full",
+        "aspectRatio" => "20:13",
+        "aspectMode" => "cover"
+    ),
+    "body" => array(
+        "type" => "box",
+        "layout" => "vertical",
+        "contents" => array(
+            array(
+                "type" => "text",
+                "text" => "Brown Cafe",
+                "weight" => "bold",
+                "size" => "xl"
+            ),
+            array(
+                "type" => "box",
+                "layout" => "vertical",
+                "margin" => "lg",
+                "spacing" => "sm",
+                "contents" => array(
+                    array(
+                        "type" => "box",
+                        "layout" => "baseline",
+                        "spacing" => "sm",
+                        "contents" => array(
+                            array(
+                                "type" => "text",
+                                "text" => "地址",
+                                "color" => "#aaaaaa",
+                                "size" => "sm",
+                                "flex" => 1,
+                                "weight" => "bold"
+                            ),
+                            array(
+                                "type" => "text",
+                                "text" => "新北市板橋區文化路二段266號",
+                                "wrap" => true,
+                                "color" => "#666666",
+                                "size" => "sm",
+                                "flex" => 5
+                            )
+                        )
+                    ),
+                    array(
+                        "type" => "box",
+                        "layout" => "baseline",
+                        "spacing" => "sm",
+                        "contents" => array(
+                            array(
+                                "type" => "text",
+                                "text" => "時間",
+                                "color" => "#aaaaaa",
+                                "size" => "sm",
+                                "flex" => 1,
+                                "weight" => "bold"
+                            ),
+                            array(
+                                "type" => "text",
+                                "text" => "08:30 - 20:30",
+                                "wrap" => true,
+                                "color" => "#666666",
+                                "size" => "sm",
+                                "flex" => 5
+                            )
+                        )
+                    ),
+                    array(
+                        "type" => "box",
+                        "layout" => "baseline",
+                        "spacing" => "sm",
+                        "contents" => array(
+                            array(
+                                "type" => "text",
+                                "text" => "介紹",
+                                "color" => "#aaaaaa",
+                                "size" => "sm",
+                                "flex" => 1,
+                                "weight" => "bold"
+                            ),
+                            array(
+                                "type" => "text",
+                                "text" => "格上汽車租賃股份有限公司，簡稱格上租車，是臺灣一家汽車租賃公司，其母公司為裕融企業股份有限公司。 格上租車於1998年12月加入裕隆汽車集團，並陸續併購多家同業公司，目前是臺灣第二大租車公司，市場佔有率約23%。",
+                                "wrap" => true,
+                                "color" => "#666666",
+                                "size" => "sm",
+                                "flex" => 5
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    ),
+    "footer" => array(
+        "type" => "box",
+        "layout" => "vertical",
+        "spacing" => "sm",
+        "contents" => array(
+            array(
+                "type" => "button",
+                "style" => "link",
+                "height" => "sm",
+                "action" => array(
+                    "type" => "uri",
+                    "label" => "Google",
+                    "uri" => "https://linecorp.com"
+                )
+            ),
+            array(
+                "type" => "button",
+                "style" => "link",
+                "height" => "sm",
+                "action" => array(
+                    "type" => "uri",
+                    "label" => "開啟地圖",
+                    "uri" => "https://linecorp.com"
+                )
+            ),
+            array(
+                "type" => "box",
+                "layout" => "vertical",
+                "contents" => array(),
+                "margin" => "sm"
+            )
+        ),
+        "flex" => 0
+    )
+);
+return $r;
     $name = "格下租車";
     global $conn;
     //取得table

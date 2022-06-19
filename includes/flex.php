@@ -481,6 +481,22 @@ function introduce($name)
         ]
     ];
 
+    $body = [
+        [
+            "type" => "text",
+            "text" => $row['name'],
+            "weight" => "bold",
+            "size" => "xl"
+        ],
+        [
+            "type" => "box",
+            "layout" => "vertical",
+            "margin" => "lg",
+            "spacing" => "sm",
+            "contents" => [$address, $time, $introduce]
+        ],
+    ];
+
 
     $r = array(
     "type" => "bubble",
@@ -494,25 +510,7 @@ function introduce($name)
     "body" => array(
         "type" => "box",
         "layout" => "vertical",
-        "contents" => array(
-            array(
-                "type" => "text",
-                "text" => $row['name'],
-                "weight" => "bold",
-                "size" => "xl"
-            ),
-            array(
-                "type" => "box",
-                "layout" => "vertical",
-                "margin" => "lg",
-                "spacing" => "sm",
-                "contents" => array(
-                    $address,
-                    $time,
-                    $introduce
-                )
-            )
-        )
+        "contents" => $body
     ),
     "footer" => array(
         "type" => "box",

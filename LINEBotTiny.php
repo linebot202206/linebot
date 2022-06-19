@@ -91,45 +91,6 @@ class LINEBotTiny
             exit();
         }
         return $data['events'];
-        /*
-        {
-          "destination": "xxxxxxxxxx",
-          "events": [
-            {
-              "replyToken": "***",
-              "type": "message",
-              "mode": "active",
-              "timestamp": 1462629479859,
-              "source": {
-                "type": "user",
-                "userId": "U4af4980629..."
-              },
-              "message": {
-                "id": "325708",
-                "type": "text",
-                "text": "@example Hello, world! (love)",
-                "emojis": [
-                  {
-                    "index": 23,
-                    "length": 6,
-                    "productId": "5ac1bfd5040ab15980c9b435",
-                    "emojiId": "001"
-                  }
-                ],
-                "mention": {
-                  "mentionees": [
-                    {
-                      "index": 0,
-                      "length": 8,
-                      "userId": "U850014438e..."
-                    }
-                  ]
-                }
-              }
-            }
-          ]
-        }
-        */
     }
 
     public function replyMessage($message)
@@ -152,34 +113,6 @@ class LINEBotTiny
         if (strpos($http_response_header[0], '200') === false) {
             error_log('Request failed: ' . $response);
         }
-    }
-
-    public function profile()
-    {
-        /*
-        Response = 
-        {
-            "userId": "U43b3b5392877af9ca69fb0ad7017e052",
-            "displayName": "欣慧",
-            "pictureUrl": "https://sprofile.line-scdn.net/0hd8HYjlEHOxdlIC_yMrlFaBVwOH1GUWIFQUMkc1d0bHUME3lDSEYkc1AiZi9eQnhAGU52c1ZyYnRpM0xxe3bHI2IQZSBcFn9DSEd29w",
-            "language": "zh-TW"
-        }
-        */
-        $header = array(
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $this->channelAccessToken,
-        );
-
-        $context = stream_context_create([
-            'http' => [
-                'method' => 'GET',
-                'header' => implode("\r\n", $header),
-            ],
-        ]);
-
-        $response = file_get_contents("https://api.line.me/v2/bot/profile/U43b3b5392877af9ca69fb0ad7017e052"., false, $context);
-        
-        return $response;
     }
 
     private function sign($body)

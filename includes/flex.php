@@ -529,7 +529,7 @@ function introduce($name)
         "type" => "bubble",
         "hero" => [
             "type" => "image",
-            "url" => "../img/".$row['name']."png",
+            "url" => "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
             "size" => "full",
             "aspectRatio" => "20:13",
             "aspectMode" => "cover"

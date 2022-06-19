@@ -18,7 +18,7 @@ if($retval) {
         $data[$row['name']] = $row;
     }
 
-    $type = $data[$command[0]]['type'];
+    $type = $data[$command[0]]['label'];
 	$name = isset($command[1])?$command[1]:$command[0];
 }
 

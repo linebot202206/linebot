@@ -225,7 +225,7 @@ function travel($name, $data)
                 $place['action'] = [
                     "type" => "message",
                     "label" => "action",
-                    "uri" => "景點 ".$placeData['name']
+                    "text" => "景點 ".$placeData['name']
                 ];
             }
 

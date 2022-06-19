@@ -22,24 +22,21 @@
 */
 global $client, $message, $event;
 if (strtolower($message['text']) == "text" || $message['text'] == "文字") {
-<<<<<<< HEAD
-    //$profile = json_decode($client-> profile(), true);
+    $profile = json_decode($client-> profile(), true);
 
-=======
-    $profile = $client-> profile();
     if($profile['displayName']){
         $check = "OK";
     }else{
         $check = "NO";
     }
->>>>>>> parent of 9d0cc36 (try)
+
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],
         'messages' => array(
             array(
                 'type' => 'text', //訊息類型 (文字)
-                //'text' => $event['source']['userId']."===".$profile['displayName'] //回覆訊息
-                'text' => 'Hello, world!' //回覆訊息
+                'text' => $event['source']['userId']."===".$check //回覆訊息
+                //'text' => 'Hello, world!' //回覆訊息
             )
         )
     ));

@@ -510,6 +510,19 @@ function introduce($name)
         ];
         $footer[] = $google;
     }
+    if($row['map_url']){
+        $map = [
+            "type" => "button",
+            "style" => "link",
+            "height" => "sm",
+            "action" => [
+              "type" => "uri",
+              "label" => "開啟地圖",
+              "uri" => $row['map_url']
+            ]
+        ];
+        $footer[] = $map;
+    }
 
 
     $r = array(
@@ -532,22 +545,7 @@ function introduce($name)
         "spacing" => "sm",
         "contents" => array(
             $google,
-            array(
-                "type" => "button",
-                "style" => "link",
-                "height" => "sm",
-                "action" => array(
-                    "type" => "uri",
-                    "label" => "開啟地圖",
-                    "uri" => "https://linecorp.com"
-                )
-            ),
-            array(
-                "type" => "box",
-                "layout" => "vertical",
-                "contents" => array(),
-                "margin" => "sm"
-            )
+            $map
         ),
         "flex" => 0
     )

@@ -117,7 +117,6 @@ class LINEBotTiny
 
     public function profile()
     {
-        return "123";
         $header = array(
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->channelAccessToken,

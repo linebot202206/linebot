@@ -497,6 +497,20 @@ function introduce($name)
         ],
     ];
 
+    if($row['introduce_url']){
+        $google = [
+            "type" => "button",
+            "style" => "link",
+            "height" => "sm",
+            "action" => [
+              "type" => "uri",
+              "label" => "Google",
+              "uri" => $row['introduce_url']
+            ]
+        ];
+        $footer[] = $google;
+    }
+
 
     $r = array(
     "type" => "bubble",
@@ -517,16 +531,7 @@ function introduce($name)
         "layout" => "vertical",
         "spacing" => "sm",
         "contents" => array(
-            array(
-                "type" => "button",
-                "style" => "link",
-                "height" => "sm",
-                "action" => array(
-                    "type" => "uri",
-                    "label" => "Google",
-                    "uri" => "https://linecorp.com"
-                )
-            ),
+            $google,
             array(
                 "type" => "button",
                 "style" => "link",

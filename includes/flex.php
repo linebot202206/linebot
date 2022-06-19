@@ -373,7 +373,7 @@ function introduce($name)
             "action" => [
               "type" => "uri",
               "label" => "Google",
-              "uri" => "https://liff.line.me/1657232968-p9N7E5WA?url=".$row['introduce_url']
+              "uri" => "https://liff.line.me/1657231784-ne8qxRxR?url=".$row['introduce_url']
             ]
         ];
         $footer[] = $google;

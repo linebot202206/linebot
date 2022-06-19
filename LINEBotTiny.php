@@ -124,8 +124,7 @@ class LINEBotTiny
 
         $context = stream_context_create([
             'http' => [
-                'ignore_errors' => true,
-                'method' => 'POST',
+                'method' => 'GET',
                 'header' => implode("\r\n", $header),
             ],
         ]);

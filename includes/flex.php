@@ -396,6 +396,18 @@ function travel($name, $data)
 
 function introduce($name)
 {
+    $name = "格下租車";
+    global $conn;
+    //取得table
+    $sql = "SELECT * FROM `place` WHERE `name` = '格下租車'";
+    $retval = mysqli_query( $conn, $sql );
+    if(!$retval ) {
+        die('Could not get data: ' . mysqli_error());
+    }
+    $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
+    $q = $row['name']?:"失敗";
+
+
     $r = array(
     "type" => "bubble",
     "hero" => array(
@@ -411,7 +423,7 @@ function introduce($name)
         "contents" => array(
             array(
                 "type" => "text",
-                "text" => "Brown Cafe",
+                "text" => $q,
                 "weight" => "bold",
                 "size" => "xl"
             ),

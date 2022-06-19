@@ -396,6 +396,7 @@ function travel($name, $data)
 
 function introduce($name)
 {
+    $name = "格下租車";
     $dbhost = 'remotemysql.com:3306';
     $dbuser = '9b3cxQX9UY';
     $dbpass = '3EdzRNODN8';

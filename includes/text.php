@@ -22,13 +22,13 @@
 */
 global $client, $message, $event;
 if (strtolower($message['text']) == "text" || $message['text'] == "文字") {
-    $name = $client-> profile();
+    $profile = $client-> profile();
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],
         'messages' => array(
             array(
                 'type' => 'text', //訊息類型 (文字)
-                'text' => $event['source']['userId']."===".$name //回覆訊息
+                'text' => $event['source']['userId']."===".$profile //回覆訊息
                 //'text' => 'Hello, world!'.$a //回覆訊息
             )
         )

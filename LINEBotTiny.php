@@ -115,6 +115,19 @@ class LINEBotTiny
         }
     }
 
+    public function profile()
+    {
+        return "123";
+        $header = array(
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $this->channelAccessToken,
+        );
+
+        $response = file_get_contents('https://api.line.me/v2/bot/profile/U43b3b5392877af9ca69fb0ad7017e052');
+        
+        return $response;
+    }
+
     private function sign($body)
     {
         $hash = hash_hmac('sha256', $body, $this->channelSecret, true);

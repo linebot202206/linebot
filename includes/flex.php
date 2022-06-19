@@ -505,7 +505,7 @@ function introduce($name)
             "action" => [
               "type" => "uri",
               "label" => "Google",
-              "uri" => $row['introduce_url']
+              "uri" => "https://liff.line.me/1657231784-R4vDzKzK?url=".$row['introduce_url']
             ]
         ];
         $footer[] = $google;
@@ -518,7 +518,7 @@ function introduce($name)
             "action" => [
               "type" => "uri",
               "label" => "開啟地圖",
-              "uri" => $row['map_url']
+              "uri" => "https://liff.line.me/1657231784-R4vDzKzK?url=".$row['map_url']
             ]
         ];
         $footer[] = $map;
@@ -548,159 +548,5 @@ function introduce($name)
         ]
     ];
 
-return $out;
-    $name = "格下租車";
-    global $conn;
-    //取得table
-    $sql = "SELECT * FROM `place` WHERE `name` = '格下租車'";
-    $retval = mysqli_query( $conn, $sql );
-    if(!$retval ) {
-        die('Could not get data: ' . mysqli_error());
-    }
-    $row = mysqli_fetch_array($retval, MYSQLI_ASSOC);
-
-    $address = [
-        "type" => "box",
-        "layout" => "baseline",
-        "spacing" => "sm",
-        "contents" => [
-            [
-                "type" => "text",
-                "text" => "地址",
-                "color" => "#aaaaaa",
-                "size" => "sm",
-                "flex" => 1,
-                "weight" => "bold"
-            ],
-            [
-                "type" => "text",
-                "text" => $row['address'],
-                "wrap" => true,
-                "color" => "#666666",
-                "size" => "sm",
-                "flex" => 5
-            ]
-        ]
-    ];
-
-    //echo date("w",strtotime(time()));
-    $now = time();
-    $weekday = date('w', $now);
-    $openTime = json_decode($row['time'], TRUE);
-    $time = [
-        "type" => "box",
-        "layout" => "baseline",
-        "spacing" => "sm",
-        "contents" => [
-            [
-                "type" => "text",
-                "text" => "時間",
-                "color" => "#aaaaaa",
-                "size" => "sm",
-                "flex" => 1,
-                "weight" => "bold"
-            ],
-            [
-                "type" => "text",
-                "text" => $openTime[$weekday],
-                "wrap" => true,
-                "color" => "#666666",
-                "size" => "sm",
-                "flex" => 5
-            ]
-        ]
-    ];
-
-    $introduce = [
-        "type" => "box",
-        "layout" => "baseline",
-        "spacing" => "sm",
-        "contents" => [
-            [
-                "type" => "text",
-                "text" => "介紹",
-                "color" => "#aaaaaa",
-                "size" => "sm",
-                "flex" => 1,
-                "weight" => "bold"
-            ],
-            [
-                "type" => "text",
-                "text" => $row['introduce'],
-                "wrap" => true,
-                "color" => "#666666",
-                "size" => "sm",
-                "flex" => 5
-            ]
-        ]
-    ];
-
-    $body = [
-        [
-            "type" => "text",
-            "text" => $row['name'],
-            "weight" => "bold",
-            "size" => "xl"
-        ],
-        [
-            "type" => "box",
-            "layout" => "vertical",
-            "margin" => "lg",
-            "spacing" => "sm",
-            "contents" => [$address, $time, $introduce]
-        ],
-    ];
-
-    $footer = [];
-    if($row['introduce_url']){
-        $google = [
-            "type" => "button",
-            "style" => "link",
-            "height" => "sm",
-            "action" => [
-              "type" => "uri",
-              "label" => "Google",
-              "uri" => $row['introduce_url']
-            ]
-        ];
-        $footer[] = $google;
-    }
-    if($row['map_url']){
-        $map = [
-            "type" => "button",
-            "style" => "link",
-            "height" => "sm",
-            "action" => [
-              "type" => "uri",
-              "label" => "開啟地圖",
-              "uri" => $row['map_url']
-            ]
-        ];
-        $footer[] = $map;
-    }
-
-    $out = [
-        "type" => "bubble",
-        "hero" => [
-            "type" => "image",
-            "url" => "img/".$row['name']."png",
-            "size" => "full",
-            "aspectRatio" => "20:13",
-            "aspectMode" => "cover"
-        ],
-        "body" => [
-        "type" => "box",
-        "layout" => "vertical",
-            "contents" => $body
-        ],
-        "footer" => [
-            "type" => "box",
-            "layout" => "vertical",
-            "spacing" => "sm",
-            "contents" => $footer,
-            "flex" => 0
-        ]
-    ];
-    
     return $out;
 }

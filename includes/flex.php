@@ -3,32 +3,31 @@ global $client, $message, $event;
 if ($type == "flex") {
     /* 注意，Flex Message Simulator 生成並轉換的陣列貼在這邊 */
     $name = strtolower($name);
-    if($data[$name]['label'] == "travel"){
-        $contentsArray = output($name);
-    }elseif ($data[$name]['label'] == "introduce") {
-        $contentsArray = introduce();
+
+    switch ($data[$command[0]]['label']) {
+        case 'travel':
+            $contentsArray = output($name);
+            break;
+        case 'introduce':
+            $contentsArray = introduce();
+            break;
+        default:
+            # code...
+            break;
     }
 
-    $client->replyMessage(array(
-        'replyToken' => $event['replyToken'],
-        'messages' => array(
-            array(
-                'type' => 'text',
-                'text' => '您好，這是一個範例'.$data[$command[0]]['label']
+    if($contentsArray){
+        $client->replyMessage(array(
+            'replyToken' => $event['replyToken'],
+            'messages' => array(
+                array(
+                    'type' => 'flex', //訊息類型 (flex)
+                    'altText' => 'Example flex message template', //替代文字
+                    'contents' => $contentsArray //Flex Message 內容
+                )
             )
-        )
-    ));
-
-    $client->replyMessage(array(
-        'replyToken' => $event['replyToken'],
-        'messages' => array(
-            array(
-                'type' => 'flex', //訊息類型 (flex)
-                'altText' => 'Example flex message template', //替代文字
-                'contents' => $contentsArray //Flex Message 內容
-            )
-        )
-    ));
+        ));
+    }
 
 }
 

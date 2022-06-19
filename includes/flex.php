@@ -14,7 +14,7 @@ if ($type == "flex") {
         'messages' => array(
             array(
                 'type' => 'text',
-                'text' => '您好，這是一個範例'.$data[$name]['label']
+                'text' => '您好，這是一個範例'.$data[$command[0]]['label']
             )
         )
     ));

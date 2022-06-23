@@ -14,7 +14,7 @@ if (strpos( $message['text'], "#" ) === 0) {
 	$id = ($type==1)?$event['source']['userId']:$event['source']['groupId'];
 	//$sql = "SELECT * FROM `command` WHERE `cmd` = $message['text'] AND `type` = $type AND `id` = $id";
 	//$sql = "SELECT * FROM `command` WHERE `cmd` = '$message['text']'";
-	$sql = "SELECT * FROM `command` WHERE `cmd` = ".$message['text'];
+	$sql = "SELECT * FROM `command` WHERE `cmd` = ".$message['text']." AND `type` = ".$type." AND `id` = ".$id;
 	$client->replyMessage(array(
         'replyToken' => $event['replyToken'],
         'messages' => array(

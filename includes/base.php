@@ -17,13 +17,24 @@ if (strpos( $message['text'], "#" ) === 0) {
 	$sql = "SELECT * FROM `command` WHERE `cmd` = '".$message['text']."' AND `type` = ".$type." AND `id` = '".$id."'";
 	$retval = mysqli_query( $conn, $sql );
 	if($retval) {
-	    $row = mysqli_fetch_array($retval, MYSQLI_ASSOC)
+	//    $row = mysqli_fetch_array($retval, MYSQLI_ASSOC)
 	    $client->replyMessage(array(
 	        'replyToken' => $event['replyToken'],
 	        'messages' => array(
 	            array(
 	                'type' => 'text', //訊息類型 (文字)
-	                'text' => $sql
+	                'text' => "yes===".$sql
+	                //'text' => 'Hello, world!'.$profile['displayName'] //回覆訊息
+	            )
+	        )
+	    ));
+	}else{
+		$client->replyMessage(array(
+	        'replyToken' => $event['replyToken'],
+	        'messages' => array(
+	            array(
+	                'type' => 'text', //訊息類型 (文字)
+	                'text' => "no===".$sql
 	                //'text' => 'Hello, world!'.$profile['displayName'] //回覆訊息
 	            )
 	        )

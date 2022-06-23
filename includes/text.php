@@ -23,17 +23,24 @@
 global $client, $message, $event;
 if (strtolower($message['text']) == "text" || $message['text'] == "#文字") {
     $profile = $client->profile($event['source']['userId']);
-    if (strpos( $message['text'], "#" ) === 0) {
-        $txt = "yes";
-    }else{
-        $txt = "no";
-    }
+
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],
         'messages' => array(
             array(
                 'type' => 'text', //訊息類型 (文字)
-                'text' => $txt
+                'text' => "第一個文字"
+                //'text' => 'Hello, world!'.$profile['displayName'] //回覆訊息
+            )
+        )
+    ));
+
+    $client->replyMessage(array(
+        'replyToken' => $event['replyToken'],
+        'messages' => array(
+            array(
+                'type' => 'text', //訊息類型 (文字)
+                'text' => "第二個文字"
                 //'text' => 'Hello, world!'.$profile['displayName'] //回覆訊息
             )
         )

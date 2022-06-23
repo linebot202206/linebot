@@ -8,7 +8,19 @@ if($retval) {
 	$config = $row;
 }
 */
-
+global $client, $message, $event;
+if (strpos( $message['text'], "#" ) === 0) {
+	$client->replyMessage(array(
+        'replyToken' => $event['replyToken'],
+        'messages' => array(
+            array(
+                'type' => 'text', //訊息類型 (文字)
+                'text' => $message['text']
+                //'text' => 'Hello, world!'.$profile['displayName'] //回覆訊息
+            )
+        )
+    ));
+}
 $command = explode(" ",$message['text']);
 
 $sql = "SELECT * FROM `config`";

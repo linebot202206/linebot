@@ -23,12 +23,13 @@
 global $client, $message, $event;
 if (strtolower($message['text']) == "text" || $message['text'] == "文字") {
     $profile = $client->profile($event['source']['userId']);
+    $txt = mb_substr($txt, 0, 1,"UTF-8");
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],
         'messages' => array(
             array(
                 'type' => 'text', //訊息類型 (文字)
-                'text' => mb_substr($txt, 0, 1,"UTF-8");
+                'text' => $txt
                 //'text' => 'Hello, world!'.$profile['displayName'] //回覆訊息
             )
         )

@@ -14,17 +14,22 @@ if (strpos( $message['text'], "#" ) === 0) {
 	$id = ($type==1)?$event['source']['userId']:$event['source']['groupId'];
 	//$sql = "SELECT * FROM `command` WHERE `cmd` = $message['text'] AND `type` = $type AND `id` = $id";
 	//$sql = "SELECT * FROM `command` WHERE `cmd` = '$message['text']'";
-	$sql = "SELECT * FROM `command` WHERE `cmd` = '".$message['text']."'' AND `type` = ".$type." AND `id` = '".$id."'";
-	$client->replyMessage(array(
-        'replyToken' => $event['replyToken'],
-        'messages' => array(
-            array(
-                'type' => 'text', //訊息類型 (文字)
-                'text' => $message['text']."===".$sql
-                //'text' => 'Hello, world!'.$profile['displayName'] //回覆訊息
-            )
-        )
-    ));
+	$sql = "SELECT * FROM `command` WHERE `cmd` = '".$message['text']."' AND `type` = ".$type." AND `id` = '".$id."'";
+	$retval = mysqli_query( $conn, $sql );
+	if($retval) {
+	    $row = mysqli_fetch_array($retval, MYSQLI_ASSOC)
+	    $client->replyMessage(array(
+	        'replyToken' => $event['replyToken'],
+	        'messages' => array(
+	            array(
+	                'type' => 'text', //訊息類型 (文字)
+	                'text' => $row['text']
+	                //'text' => 'Hello, world!'.$profile['displayName'] //回覆訊息
+	            )
+	        )
+	    ));
+	}
+
 }
 $command = explode(" ",$message['text']);
 

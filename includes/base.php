@@ -23,7 +23,7 @@ if (strpos( $message['text'], "#" ) === 0) {
 	        'messages' => array(
 	            array(
 	                'type' => 'text', //訊息類型 (文字)
-	                'text' => $row['text']
+	                'text' => $sql
 	                //'text' => 'Hello, world!'.$profile['displayName'] //回覆訊息
 	            )
 	        )

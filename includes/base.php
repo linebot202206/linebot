@@ -11,12 +11,13 @@ if($retval) {
 global $client, $message, $event;
 if (strpos( $message['text'], "#" ) === 0) {
 	$type = ($event['source']['type'] == "user")?1:2;
+	$id = ($type==1)?$event['source']['userId']:$event['source']['groupId'];
 	$client->replyMessage(array(
         'replyToken' => $event['replyToken'],
         'messages' => array(
             array(
                 'type' => 'text', //訊息類型 (文字)
-                'text' => $message['text']."===".$type
+                'text' => $message['text']."===".$id
                 //'text' => 'Hello, world!'.$profile['displayName'] //回覆訊息
             )
         )

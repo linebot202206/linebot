@@ -39,9 +39,9 @@ if (strtolower($message['text']) == "text" || $message['text'] == "#文字") {
         'replyToken' => $event['replyToken'],
         'messages' => array(
             array(
-                'type' => 'text', //訊息類型 (文字)
-                'text' => "第二個文字"
-                //'text' => 'Hello, world!'.$profile['displayName'] //回覆訊息
+                'type' => 'image', //訊息類型 (圖片)
+                'originalContentUrl' => 'https://api.reh.tw/images/gonetone/logos/icons/icon-256x256.png', //回覆圖片
+                'previewImageUrl' => 'https://api.reh.tw/images/gonetone/logos/icons/icon-256x256.png' //回覆的預覽圖片
             )
         )
     ));

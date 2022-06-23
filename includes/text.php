@@ -23,7 +23,12 @@
 global $client, $message, $event;
 if (strtolower($message['text']) == "text" || $message['text'] == "文字") {
     $profile = $client->profile($event['source']['userId']);
-    $txt = mb_substr($txt, 0, 1,"UTF-8");
+    $a = mb_substr($txt, 0, 1,"UTF-8");
+    if($a=="文"){
+        $txt = "yes";
+    }else{
+        $txt = "no";
+    }
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],
         'messages' => array(

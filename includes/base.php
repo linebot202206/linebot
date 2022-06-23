@@ -8,7 +8,7 @@ if($retval) {
 	$config = $row;
 }
 */
-global $client, $message, $event;
+global $client, $message, $event, $conn;
 if (strpos( $message['text'], "#" ) === 0) {
 	$type = ($event['source']['type'] == "user")?1:2;
 	$id = ($type==1)?$event['source']['userId']:$event['source']['groupId'];

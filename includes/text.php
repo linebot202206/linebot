@@ -23,7 +23,7 @@
 global $client, $message, $event;
 if (strtolower($message['text']) == "text" || $message['text'] == "文字") {
     $profile = $client->profile($event['source']['userId']);
-    $a = mb_substr($txt, 0, 1,"UTF-8");
+    $a = mb_substr($message['text'], 0, 1,"UTF-8");
     if($a=="文"){
         $txt = "yes";
     }else{

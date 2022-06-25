@@ -61,14 +61,14 @@ foreach ($client->parseEvents() as $event) {
             switch ($message['type']) {
                 case 'text': //訊息為文字
                     require_once('includes/connection.php');
-                    //require_once('includes/base.php');
+                    require_once('includes/base.php');
                     require_once('includes/text.php'); //Type: Text
-                    require_once('includes/image.php'); //Type: Image
-                    require_once('includes/video.php'); //Type: Video
-                    require_once('includes/audio.php'); //Type: Audio
-                    require_once('includes/location.php'); //Type: Location
-                    require_once('includes/sticker.php'); //Type: Sticker
-                    require_once('includes/imagemap.php'); //Type: Imagemap
+                    //require_once('includes/image.php'); //Type: Image
+                    //require_once('includes/video.php'); //Type: Video
+                    //require_once('includes/audio.php'); //Type: Audio
+                    //require_once('includes/location.php'); //Type: Location
+                    //require_once('includes/sticker.php'); //Type: Sticker
+                    //require_once('includes/imagemap.php'); //Type: Imagemap
                     require_once('includes/template.php'); //Type: Template
                     require_once('includes/flex.php'); //Type: Flex
                     break;

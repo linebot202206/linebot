@@ -21,19 +21,14 @@
 ==============================
 */
 global $client, $message, $event, $game;
-if (strtolower($message['text']) == "text" || $message['text'] == "文字" || $message['text'] == "文字2") {
+if (strtolower($message['text']) == "text" || $message['text'] == "文字") {
     $profile = $client->profile($event['source']['userId']);
-    if($message['text'] == "文字"){
-        $game = rand ( 70 , 9999 );
-    }else{
-        $game = $game?:"0";
-    }
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],
         'messages' => array(
             array(
                 'type' => 'text', //訊息類型 (文字)
-                'text' => "第一個文字".$game
+                'text' => "第一個文字"
                 //'text' => 'Hello, world!'.$profile['displayName'] //回覆訊息
             )
         )

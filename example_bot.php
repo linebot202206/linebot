@@ -14,6 +14,7 @@
 date_default_timezone_set("Asia/Taipei"); //設定時區為台北時區
 
 require_once('LINEBotTiny.php');
+require_once('includes/game.php');
 
 $channelAccessToken = '';
 $channelSecret = '';
@@ -61,7 +62,6 @@ foreach ($client->parseEvents() as $event) {
                 case 'text': //訊息為文字
                     require_once('includes/connection.php');
                     //require_once('includes/base.php');
-                    require_once('includes/game.php');
                     require_once('includes/text.php'); //Type: Text
                     require_once('includes/image.php'); //Type: Image
                     require_once('includes/video.php'); //Type: Video

@@ -24,4 +24,3 @@ global $client, $message, $event;
 
 $game = rand ( 70 , 9999 );
 
-}

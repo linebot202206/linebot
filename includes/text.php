@@ -20,7 +20,7 @@
 }
 ==============================
 */
-global $client, $message, $event, $game;
+global $client, $message, $event;
 if (strtolower($message['text']) == "text" || $message['text'] == "文字") {
     $profile = $client->profile($event['source']['userId']);
     $client->replyMessage(array(

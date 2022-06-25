@@ -20,7 +20,7 @@
 }
 ==============================
 */
-global $client, $message, $event;
+global $client, $message, $event, $game;
 if (strtolower($message['text']) == "text" || $message['text'] == "文字") {
     $profile = $client->profile($event['source']['userId']);
     $client->replyMessage(array(
@@ -28,7 +28,7 @@ if (strtolower($message['text']) == "text" || $message['text'] == "文字") {
         'messages' => array(
             array(
                 'type' => 'text', //訊息類型 (文字)
-                'text' => "第一個文字"
+                'text' => "第一個文字".$game
                 //'text' => 'Hello, world!'.$profile['displayName'] //回覆訊息
             )
         )

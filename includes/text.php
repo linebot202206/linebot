@@ -21,8 +21,13 @@
 ==============================
 */
 global $client, $message, $event, $game;
-if (strtolower($message['text']) == "text" || $message['text'] == "文字") {
+if (strtolower($message['text']) == "text" || $message['text'] == "文字" || $message['text'] == "文字2") {
     $profile = $client->profile($event['source']['userId']);
+    if($message['text'] == "文字"){
+        $game = rand ( 70 , 9999 );
+    }else{
+        $game = $game?:"0";
+    }
     $client->replyMessage(array(
         'replyToken' => $event['replyToken'],
         'messages' => array(

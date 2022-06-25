@@ -60,8 +60,8 @@ foreach ($client->parseEvents() as $event) {
             switch ($message['type']) {
                 case 'text': //訊息為文字
                     require_once('includes/connection.php');
-                    require_once('includes/base.php');
-                    require_once('includes/game.php');
+                    //require_once('includes/base.php');
+                    //require_once('includes/game.php');
                     require_once('includes/text.php'); //Type: Text
                     require_once('includes/image.php'); //Type: Image
                     require_once('includes/video.php'); //Type: Video
